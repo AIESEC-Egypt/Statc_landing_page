@@ -681,13 +681,13 @@
                 location.reload();
             }
 
-            function login(){
-                $("#modal_login_content *").attr("disabled", "disabled").off('click');
-                var query = `mutation Mymutation($email: String!, $password: String!) {
+           function login(user_code) {
+              console.log(user_code);
+              var query = `mutation Mymutation($codeToken: String!) {
 
-                      expaLogin(email:$email,password:$password, type:"OGX")
+                      expaLogin(codeToken:$codeToken, type:"OGX")
                       {
-                        user
+						            user
                         {
                           profile
                           {
@@ -698,24 +698,43 @@
                       }
                     }`;
 
-                    var variables = { email: document.getElementById('email_field').value,
-                                      password: document.getElementById('password_field').value},
+              var variables = { codeToken: user_code.toString() },
 
-                    data_ = fetch(endpoint + '/graphql', {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                      },
-                      body: JSON.stringify({
-                        query,
-                        variables,
-                      })
-                    })
-                      .then(r => r.json())
-                      .then(data => validate_login(data));
-
+                data_ = fetch(endpoint + '/graphql', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    query,
+                    variables,
+                  })
+                })
+                  .then(r => r.json())
+                  .then(data => validate_login(data));
             }
+            function check_auth() {
+              //console.log(windowObjectReference.location.href);
+              if (windowObjectReference.location.href.indexOf("code=") > -1) {
+                console.log(windowObjectReference.location.href)
+                var auth_code = windowObjectReference.location.href.split("?code=")[1]
+                windowObjectReference.close();
+                login(auth_code);
+              }
+              if (windowObjectReference.closed) {
+                clearInterval(sensor);
+              }
+            }
+            var windowObjectReference = null;
+            var sensor = null;
+            function sign_in_btn() {
+              windowObjectReference = window.open(
+                "https://auth.aiesec.org/oauth/authorize?response_type=code&client_id=6a1dff3bc3c7fa6e1aea0b3d1e89683cfe1c9bf8517b82b26ecd0f34fa5c45db&redirect_uri=https%3A%2F%2Faiesec.org.eg%2F", "Authorization", "resizable,scrollbars,status"
+              );
+              sensor = setInterval(check_auth, 1000);
+            }	
+          
 
             function show_user_data(data){
                 document.getElementById('current_user').innerHTML = 'Hello, ' + data['data']['currentuser']['profile']['firstName'] + ', ' + '<a style="color: white;" href="#" onclick="logout();">Logout</a>';
@@ -1600,7 +1619,7 @@
                     {
                         //console.log('Adding Sign in Button');
                         var $log = $( "#current_user"),
-                        str = '<button class="button-secondary" onclick="show_login_panel();"> <i class="fas fa-lock icon-left"></i>Login </button> ',
+                        str = '<button class="button-secondary" onclick="sign_in_btn();"> <i class="fas fa-lock icon-left"></i>Login </button> ',
                         html = $.parseHTML( str ),
                         nodeNames = [];
                         $log.append( html );
