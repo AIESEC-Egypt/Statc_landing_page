@@ -17,7 +17,7 @@
         <meta property="og:type" content="website">
         <meta property="og:title" content="AIESEC EGYPT">
         <meta property="og:description" content="AIESEC is the biggest youth run organization that aims to develop leadership potential through cross cultural exchange and practical experience.">
-        <meta property="og:url" content="http://aiesec.org.eg/">
+        <meta property="og:url" content="https://aiesec.org.eg/">
         <meta property="og:site_name" content="AIESEC in EGYPT">
         <meta property="article:publisher" content="https://www.facebook.com/aiesecegypt">
         <meta property="og:image" content="img/fb.jpg">
@@ -168,7 +168,7 @@
                                     <a href="global-volunteer.html">Global Volunteer</a>
                                 </li>
                                 <li>
-                                    <a href="global-entrepreneur.html">Global Entrepreneuer</a>
+                                    <a href="global-teacher.html">Global Teacher</a>
                                 </li>
                                 <li>
                                     <a href="global-talent.html">Global Talent</a>
@@ -203,7 +203,7 @@
                             <span>Work abroad with <mark>AIESEC</mark></span><br/><br/>
 								A Global Talent talent opportunity through AIESEC is a chance to develop your leadership
 while boosting your career prospects through an international internship from 6 weeks to 78.<br /><br />
-                                <a href="#apply" class="button"><span style="color: #30C39E;">Apply Now</span></a>
+                                <a href="#apply" class="button"><span style="color: #0cb9c1;">Apply Now</span></a>
 							</p>
                     </header>
 				</div>
@@ -219,7 +219,7 @@ while boosting your career prospects through an international internship from 6 
 					<div class="column-row">
 						<div class="column-20">
 							<div class="feature-box">
-								<div class="feature-header" style="background-color: #0A8EA0;">
+								<div class="feature-header" style="background-color: #0cb9c1;">
 									 &nbsp;
 								</div>
 								<div class="feature-content" style="text-align: center;">
@@ -235,7 +235,7 @@ while boosting your career prospects through an international internship from 6 
                         
                         <div class="column-20">
 							<div class="feature-box">
-								<div class="feature-header" style="background-color: #0A8EA0;">
+								<div class="feature-header" style="background-color: #0cb9c1;">
 									 &nbsp;
 								</div>
 								<div class="feature-content" style="text-align: center;">
@@ -251,7 +251,7 @@ while boosting your career prospects through an international internship from 6 
                         
                         <div class="column-20">
 							<div class="feature-box">
-								<div class="feature-header" style="background-color: #0A8EA0;">
+								<div class="feature-header" style="background-color: #0cb9c1;">
 									 &nbsp;
 								</div>
 								<div class="feature-content" style="text-align: center;">
@@ -265,7 +265,7 @@ while boosting your career prospects through an international internship from 6 
                         
                         <div class="column-20">
 							<div class="feature-box">
-								<div class="feature-header" style="background-color: #0A8EA0;">
+								<div class="feature-header" style="background-color: #0cb9c1;">
 									 &nbsp;
 								</div>
 								<div class="feature-content" style="text-align: center;">
@@ -281,7 +281,7 @@ while boosting your career prospects through an international internship from 6 
                         
                         <div class="column-20">
 							<div class="feature-box">
-								<div class="feature-header" style="background-color: #0A8EA0;">
+								<div class="feature-header" style="background-color: #0cb9c1;">
 									 &nbsp;
 								</div>
 								<div class="feature-content" style="text-align: center;">
@@ -578,7 +578,7 @@ while boosting your career prospects through an international internship from 6 
 											<a href="global-volunteer.html">Global Volunteer</a>
 										</li>
 										<li>
-											<a href="global-entrepreneur.html">Global Entrepreneur</a>
+											<a href="global-teacher.html">Global Teacher</a>
 										</li>
 										<li>
 											<a href="global-talent.html">Global Talent</a>
@@ -763,7 +763,7 @@ while boosting your career prospects through an international internship from 6 
         }, 4000);
         </script>
         <script>
-            var endpoint = "http://alpha.aiesec.org.eg"
+            var endpoint = "https://alpha.aiesec.org.eg"
             function listCookies() {
             var theCookies = document.cookie.split(';');
             var aString = '';
@@ -939,8 +939,8 @@ while boosting your career prospects through an international internship from 6 
                 var reason_to_prevent_options = document.getElementById('prevent_reasons_options')
                 var reason_to_prevent = reason_to_prevent_options.options[reason_to_prevent_options.selectedIndex].value;
                 
-                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!,$apply_reason: String!, $prevent_resaon: String!){
-    ogxSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,reasonToApply:$apply_reason, reasonToPrevent:$prevent_resaon)
+                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $slot_id: Int!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!,$apply_reason: String!, $prevent_resaon: String!){
+    ogxSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, slotId:$slot_id, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,reasonToApply:$apply_reason, reasonToPrevent:$prevent_resaon)
                   {
                     token
                     applicant
@@ -977,11 +977,12 @@ while boosting your career prospects through an international internship from 6 
                                       faculty: faculty,
                                       referral: referral,
                                       dob: document.getElementById('dob_field').value,
-                                      ogxBranch: 2,
+                                      ogxBranch: 8,
                                       graduationYear: document.getElementById('graduation_year_field').value,
                                       gender: gender,
                                       countryId: null,
                                       opp_id: null,
+                                      slot_id: 1,
                                       apply_reason:reason_to_apply,
                                       prevent_resaon:reason_to_prevent,
                                     },

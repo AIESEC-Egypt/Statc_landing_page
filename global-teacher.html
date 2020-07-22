@@ -9,7 +9,7 @@
         })(window,document,'script','dataLayer','GTM-T4PJSH2');</script>
         <!-- End Google Tag Manager -->
 		<meta charset="UTF-8">
-		<title>AIESEC in EGYPT</title>
+		<title>Global Teacher | AIESEC in EGYPT</title>
 		<meta name="description" content="AIESEC develops the next generation of young leaders with impactful professional and volunteering experiences to activate their leadership potential.">
 		<meta name="keywords" content="volunteer, world, impact, creative, inspiration, youth">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -21,13 +21,126 @@
         <meta property="og:site_name" content="AIESEC in EGYPT">
         <meta property="article:publisher" content="https://www.facebook.com/aiesecegypt">
         <meta property="og:image" content="img/fb.jpg">
-		<!-- Icons -->
+        <!-- Icons -->
 		<link rel="apple-touch-icon-precomposed" href="img/icons/apple-touch-icon.png">
 		<link rel="icon" href="img/logos/AIESEC-Favicon-309x341.png">
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="css/fontawesome.min.css">
 		<link rel="stylesheet" href="css/main.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <style>
+        .process-3 {
+          list-style: none;
+          position: relative;
+        }
+        .process-3 li {
+          position: relative;
+          z-index: 1;
+          overflow: hidden;
+        }
+        .process-3 li .process__number {
+          float: left;
+          width: 15%;
+          width: 3.71428571em;
+          height: 3.71428571em;
+          border-radius: 50%;
+          border: 2px solid #4a90e2;
+          background: #fff;
+          text-align: center;
+        }
+        .process-3 li .process__number span {
+          font-size: 1.35714286em;
+          font-weight: bold;
+          color: #4a90e2;
+          position: relative;
+          top: 12px;
+        }
+        .process-3 li .process__body {
+          width: 80%;
+          float: right;
+        }
+        .process-3 li .process__body h4 {
+          margin-bottom: 0.342105263157895em;
+        }
+        .process-3 li:not(:last-child) {
+          margin-bottom: 3.71428571em;
+        }
+        .process-3:before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          left: 1.85714286em;
+          top: 0;
+          border-left: 1px dashed #ddd;
+        }
+        .bg--dark .process-3 li .process__number {
+          background: #252525;
+        }
+        .bg--dark .process-3:before {
+          border-color: #aaa;
+        }
+        .process-stepper > li {
+          transition: all .3s ease;
+          display: inline-block;
+          float: left;
+          text-align: center;
+          position: relative;
+        }
+        .process-stepper > li:before {
+          transition: all .3s ease;
+          content: '';
+          width: 0.92857143em;
+          height: 0.92857143em;
+          background: #ccc;
+          border-radius: 50%;
+          display: block;
+          margin: 0 auto;
+          margin-bottom: 0.92857143em;
+        }
+        .process-stepper > li:after {
+          transition: all .3s ease;
+          content: '';
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          background: #ccc;
+          top: 5px;
+          left: 0;
+        }
+        .process-stepper > li:first-child:after,
+        .process-stepper > li:last-child:after {
+          width: 50%;
+        }
+        .process-stepper > li:first-child:after {
+          left: 50%;
+        }
+        .process-stepper > li.active:before,
+        .process-stepper > li.active:after {
+          background: #4a90e2;
+        }
+        .process-stepper > li > span {
+          cursor: default;
+        }
+        .process-stepper[data-process-steps="6"] > li {
+          width: 16.666666666666667%;
+        }
+        .process-stepper[data-process-steps="5"] > li {
+          width: 20%;
+        }
+        .process-stepper[data-process-steps="4"] > li {
+          width: 25%;
+        }
+        .process-stepper[data-process-steps="3"] > li {
+          width: 33.33333333%;
+        }
+        .process-stepper[data-process-steps="2"] > li {
+          width: 50%;
+        }
+        .bg--dark .process-stepper li:not(.active):before,
+        .bg--dark .process-stepper li:not(.active):after {
+          background: #585858;
+        }
+        </style>
 	</head>
 	<body class="footer-dark">
         <!-- Google Tag Manager (noscript) -->
@@ -50,9 +163,20 @@
 						</li>
 						<li>
 							<a href="#products">Products</a>
+                            <ul>
+                                <li>
+                                    <a href="global-volunteer.html">Global Volunteer</a>
+                                </li>
+                                <li>
+                                    <a href="global-teacher.html">Global Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="global-talent.html">Global Talent</a>
+                                </li>
+                            </ul>
 						</li>
 						<li>
-							<a href="#testemonials">Testemonials</a>
+							<a href="#testemonials">Testimonials</a>
 						</li>
                         <li>
                              <a href="blog.html">Blog</a>
@@ -65,21 +189,178 @@
 				</nav>
 			</div>
 		</header>
+		<!-- Notification -->
+		
 		<!-- Content -->
 		<section id="content">
 			<!-- Content Row -->
-			<section id="products" class="content-row content-row-color content-row-clouds content-row-full-height">
+			<section class="content-row content-row-color content-row-clouds content-row-full-height">
 				<div class="container">
-					<header class="content-header content-header-large content-header-uppercase">
-						<p style="font-size: 50px;">
-							<mark style="font-family: 'Lato', sans-serif;">with</mark> <strong style="font-family: 'Lato', sans-serif;">aiesec.</strong>
-						</p>
-					</header>
-					<div class="tab-group tab-group-switch-style">
+					<header class="content-header content-header-large content-header-uppercase" style="text-align: center;" >
+						<img src="img/logos/ge_big_logo.png" style="width: 500px; height: 329px; margin-bottom: 0px;"/>
 						
-							<div class="column-row align-center-bottom">
-								
-                                <div class="column-50">
+                        <p class="text-align-center" style="font-size: 14px; line-height: 20px; margin-top: 0px;">
+                            <span>Teach abroad with <mark>AIESEC</mark></span><br/><br/>
+								A Global Teacher opportunity through AIESEC is a chance to develop leadership through a Teaching experience abroad from 9 to 78 weeks.<br /><br />
+                                <a href="#apply" class="button"><span style="color: #f48924;">Apply Now</span></a>
+							</p>
+                    </header>
+				</div>
+				<div class="content-background content-background-light">
+					<img src="uploads/banner-domain-search.jpg" alt="">
+				</div>
+			</section>
+			<!-- Content Row -->
+			
+			
+			<section class="content-row">
+				<div class="container">
+					<div class="column-row">
+						<div class="column-20">
+							<div class="feature-box">
+								<div class="feature-header" style="background-color: #f48924;">
+									 &nbsp;
+								</div>
+								<div class="feature-content" style="text-align: center;">
+									<h3>
+										Duration
+									</h3>
+									<p>
+										6-12 weeks.
+									</p>
+								</div>
+							</div>
+						</div>
+                        
+                        <div class="column-20">
+							<div class="feature-box">
+								<div class="feature-header" style="background-color: #f48924;">
+									 &nbsp;
+								</div>
+								<div class="feature-content" style="text-align: center;">
+									<h3>
+										Age Interval
+									</h3>
+									<p>
+										18-30
+									</p>
+								</div>
+							</div>
+						</div>
+                        
+                        <div class="column-20">
+							<div class="feature-box">
+								<div class="feature-header" style="background-color: #f48924;">
+									 &nbsp;
+								</div>
+								<div class="feature-content" style="text-align: center;">
+									<h3>
+										Students & Graduates
+									</h3>
+									<p></p>
+								</div>
+							</div>
+						</div>
+                        
+                        <div class="column-20">
+							<div class="feature-box">
+								<div class="feature-header" style="background-color: #f48924;">
+									 &nbsp;
+								</div>
+								<div class="feature-content" style="text-align: center;">
+									<h3>
+										Salary
+									</h3>
+									<p>
+										Unpaid
+									</p>
+								</div>
+							</div>
+						</div>
+                        
+                        <div class="column-20">
+							<div class="feature-box">
+								<div class="feature-header" style="background-color: #f48924;">
+									 &nbsp;
+								</div>
+								<div class="feature-content" style="text-align: center;">
+									<h3>
+										Intermediate
+									</h3>
+									<p>
+										English
+									</p>
+								</div>
+							</div>
+						</div>
+                    </div>
+					<div class="column-row">
+                    <div class="column-50">
+                        <div class="mt--3">
+
+                            <ol class="process-3">
+                                <li class="process_item">
+                                    <div class="process__number">
+                                        <span>1</span>
+                                    </div>
+                                    <div class="process__body">
+                                        <h4>Sign up and connect</h4>
+                                        <p>
+                                            Build your profile on the AIESEC Opportunities Portal and we can start
+                                            matching
+                                            you
+                                            with opportunities.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="process_item">
+                                    <div class="process__number">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="process__body">
+                                        <h4>Search</h4>
+                                        <p>
+                                            Filter search results to find the perfect opportunity in the perfect
+                                            location
+                                            for
+                                            you.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="process_item">
+                                    <div class="process__number">
+                                        <span>3</span>
+                                    </div>
+                                    <div class="process__body">
+                                        <h4>Confirm</h4>
+                                        <p>
+                                            Once we find a match, we can start the process of putting things in place
+                                            for
+                                            your
+                                            experience.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="process_item">
+                                    <div class="process__number">
+                                        <span>4</span>
+                                    </div>
+                                    <div class="process__body">
+                                        <h4>Get Accepted &amp; Go</h4>
+                                        <p>
+                                            Congratulations! You are on your way. We will assist you in every step of
+                                            this
+                                            adventure.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="column-50">
+                        <h1 id="apply">Congratulations</h1>
+                        <p>You're almost done with your first step towards a life changing experience.</p>
+                        <hr class="short">
                     <form id="ge_signup_form" action="javascript:validate_form();" class="form-full-width">
 						<div class="column-row">
 							<div class="column-50">
@@ -113,7 +394,7 @@
                             </div>
                             <div class="column-50">
                                 <div class="form-row">
-									<input id="dob_field" type="date" name="name" placeholder="Date of Birth">
+									<input id="dob_field" type="text" onfocus="(this.type='date')" name="name" placeholder="Date of Birth" value="Date of Birth">
 								</div>
                             </div>
                         </div>
@@ -153,11 +434,8 @@
                         <div class="column-row" style="margin-top: 0px;">
                             <div class="column-50">
                                 <div class="form-row">
-									<select id="product_options" placeholder="Product" name="Product">
-                                        <option value="" disabled="" selected="">Product</option>
-                                        <option value="7">Global Volunteer</option>
-                                        <option value="9">Global Teacher</option>
-                                        <option value="8">Global Talent</option>
+									<select id="referral_options" placeholder="Referral" name="referral">
+                                        <option value="" disabled="" selected="">Referral</option>
                                     </select>
 								</div>
                             </div>
@@ -199,27 +477,132 @@
                           </div>
                         </div>
                     </div>
-                                </div>
-                                
-                                
-                                
-								
-							
-						</div>
+                        
+                    </div>
+				</div>
+			</section>
+            <section id="more-info" class="content-row content-row-gray">
+				<div class="container">
+                    <div class="column-row">
+                        <div class="column-33">
+                            <img src="img/logos/GE_partner_logo.png" style="align-content: center;" />
+                        </div>
+
+                        <div class="column-66">
+                            <h2>Program Overview</h2>
+                            
+                            <p class="color--dark">
+                                    
+    AIESEC's Global Teacher program provide a teaching opportunity for young people who seek to develop their leadership
+    skills, competencies and boost their career opportunities. Participants of the program will gain a cross culture
+    settings, equip themselves with new skills and add value to the school or the institution they work in.
+    <br>
+        Stand out as a teacher with an international teaching opportunity and develop a global perspective and understanding.
+
+
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			<!-- Content Row -->
+			<section id="testemonials" class="content-row">
+				<div class="container">
+					<header class="content-header">
+						<!-- <h2>
+							People who traveled with AIESEC
+						</h2> -->
 						
+					</header>
+					<div class="container">
+					<div class="column-row align-center">
+						<div class="column-50">
+							<!-- <div class="gallery gallery-slider">
+								<ul>
+									<li>
+										<a href="img/logos/testemonials/ge/1.png"><img src="img/logos/testemonials/ge/1.png" alt=""></a>
+									</li>
+									<li>
+										<a href="img/logos/testemonials/ge/2.png"><img src="img/logos/testemonials/ge/2.png" alt=""></a>
+									</li>
+									<li>
+										<a href="img/logos/testemonials/ge/3.png"><img src="img/logos/testemonials/ge/3.png" alt=""></a>
+									</li>
+									
+								</ul>
+							</div> -->
+						</div>
 					</div>
+				</div>
+				</div>
 			</section>
 			<!-- Content Row -->
+			
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<section class="footer-primary">
+				<div class="container">
+					<div class="column-row">
+						<div class="column-33">
+							<h5>
+								AIESEC
+							</h5>
+							<p>
+								AIESEC is a non-governmental not-for-profit organisation in consultative status with the United Nations Economic and Social Council (ECOSOC), affiliated with the UN DPI, member of ICMYO, and is recognized by UNESCO. AIESEC International is registered as a Foundation (Stichting), RSIN #807103895 in Rotterdam, The Netherlands.
+							</p>
+						</div>
+						<div class="column-66">
+							<div class="column-row align-right-top">
+								<div class="column-25">
+									<h5>
+										CONNECT
+									</h5>
+									<ul class="list-style-icon">
+										<li>
+											<a href="https://www.facebook.com/aiesecegypt/"><i class="fab fa-facebook"></i>Facebook</a>
+										</li>
+										<li>
+											<a href="https://www.instagram.com/aiesecegypt/"><i class="fab fa-instagram"></i>Instagram</a>
+										</li>
+										<li>
+											<a href="https://www.youtube.com/channel/UCACQRlsLoDi1xY2gpxenkhA"><i class="fab fa-youtube"></i>Youtube</a>
+										</li>
+									</ul>
+								</div>
+								<div class="column-25">
+									<h5>
+										YOUTH OPPORTUNITIES 
+									</h5>
+									<ul>
+										<li>
+											<a href="global-volunteer.html">Global Volunteer</a>
+										</li>
+										<li>
+											<a href="global-teacher.html">Global Teacher</a>
+										</li>
+										<li>
+											<a href="global-talent.html">Global Talent</a>
+										</li>
+									</ul>
+								</div>
+								
+								<div class="column-25">
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="footer-secondary">
 				<div class="container">
-					<p style="text-align: center;">
+					<p>
 						Copyright 2020 &copy; AIESEC in Egypt All rights reserved.<br>
 						Powered by AIESEC, developed by <a href="https://www.facebook.com/dalegah">Omar Dalegah</a>
 					</p>
 				</div>
                 <div class="container">
 					<a id="hotme" data-modal-target="client-login"></a>
-                    
 					<div class="column-row">
 						
 						
@@ -256,11 +639,113 @@
 									</form>
 								</div></div>
 						</div>
+                        
+                       
+							
+							<div class="modal modal-large" data-modal="cloud-features" data-modal-dismissible="true">
+								<div class="modal-header" style="background-color: #037Ef3;color: white;">
+                                    <p style="float: left;"><img style="height: 50px; width: 100px;" alt="Image" src="img/logos/flags/brazil.png"></p><p><span style="margin-left: 10px;">Brazil</span></p>
+                                    
+								</div>
+								<div class="modal-content">
+									<div class="column-row">
+                                        <div class="column-40">
+											<div class="product-box" style="background-color: #037Ef3;color: white;">
+												<div class="product-header">
+													<table style="background-color: #037Ef3;color: white;">
+                                                    <tr>
+                                                        <td><img src="img/logos/ac.png"/></td>
+                                                        <td><img src="img/logos/fc.png"/></td>
+                                                        <td><img src="img/logos/fc.png"/></td>
+                                                        <td><img src="img/logos/fc.png"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>100$</td>
+                                                        <td>100$</td>
+                                                        <td>100$</td>
+                                                        <td>100$</td>
+                                                    </tr>
+                                                    
+                                                    </table>
+												</div>
+												<div class="product-price">
+													
+												</div>
+												<div class="product-features">
+													
+												</div>
+												
+											</div>
+										</div>
+										<div class="column-80" style="overflow-y: scroll; height: 450px;">
+											
+                                                <blockquote>
+                                                    
+                                                    <p style="float: left; width: 200px;"><img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="https://cdn-expa.aiesec.org/gis-img/gt_default.png"></p>
+                                                    <p><strong style="margin-left: 10px; margin-top: 0px;">Opportunity Title</strong></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">City . 21-01-2020 . 12 Weeks</span></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">Enabler Name</span></p>
+                                                    <footer>
+                                                        William Crawford, Director of Operations at Cloudhub.
+                                                    </footer>
+                                                </blockquote> 
+                                            
+                                            <blockquote>
+                                                    
+                                                    <p style="float: left; width: 200px;"><img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="https://cdn-expa.aiesec.org/gis-img/gt_default.png"></p>
+                                                    <p><strong style="margin-left: 10px; margin-top: 0px;">Opportunity Title</strong></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">City . 21-01-2020 . 12 Weeks</span></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">Enabler Name</span></p>
+                                                    <footer>
+                                                        William Crawford, Director of Operations at Cloudhub.
+                                                    </footer>
+                                                </blockquote> 
+                                            
+                                            <blockquote>
+                                                    
+                                                    <p style="float: left; width: 200px;"><img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="https://cdn-expa.aiesec.org/gis-img/gt_default.png"></p>
+                                                    <p><strong style="margin-left: 10px; margin-top: 0px;">Opportunity Title</strong></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">City . 21-01-2020 . 12 Weeks</span></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">Enabler Name</span></p>
+                                                    <footer>
+                                                        William Crawford, Director of Operations at Cloudhub.
+                                                    </footer>
+                                                </blockquote> 
+                                            
+                                            <blockquote>
+                                                    
+                                                    <p style="float: left; width: 200px;"><img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="https://cdn-expa.aiesec.org/gis-img/gt_default.png"></p>
+                                                    <p><strong style="margin-left: 10px; margin-top: 0px;">Opportunity Title</strong></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">City . 21-01-2020 . 12 Weeks</span></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">Enabler Name</span></p>
+                                                    <footer>
+                                                        William Crawford, Director of Operations at Cloudhub.
+                                                    </footer>
+                                                </blockquote> 
+                                            
+                                            <blockquote>
+                                                    
+                                                    <p style="float: left; width: 200px;"><img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="https://cdn-expa.aiesec.org/gis-img/gt_default.png"></p>
+                                                    <p><strong style="margin-left: 10px; margin-top: 0px;">Opportunity Title</strong></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">City . 21-01-2020 . 12 Weeks</span></p>
+                                                    <p style="margin-left: 10px;margin-top: 0px;"><span style="margin-left: 10px;">Enabler Name</span></p>
+                                                    <footer>
+                                                        William Crawford, Director of Operations at Cloudhub.
+                                                    </footer>
+                                                </blockquote> 
+                                            
+											
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						
 						
 					</div>
 				</div>
 			</section>
-	
+		</footer>
 		<!-- Scripts -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/headroom.min.js"></script>
@@ -269,8 +754,17 @@
 		<script src="js/bricks.min.js"></script>
 		<script src="js/main.min.js"></script>
         <script>
+        function roll(){
+            var close_menu_x = document.getElementById('nav-overlay-close')
+            var slider_element = document.getElementsByClassName('gallery-next material-icons')[0];
+            slider_element.click();
+        }
+        window.setInterval(function(){
+          roll();
+        }, 4000);
+        </script>
+        <script>
             var endpoint = "https://alpha.aiesec.org.eg"
-            var campaign_id = null;
             function listCookies() {
             var theCookies = document.cookie.split(';');
             var aString = '';
@@ -325,7 +819,7 @@
             }
 
 
-             function login(user_code) {
+            function login(user_code) {
                 console.log(user_code);
                 var query = `mutation Mymutation($codeToken: String!) {
 
@@ -383,6 +877,8 @@
                 document.getElementById('current_user').innerHTML = 'Hello, ' + data['data']['currentuser']['profile']['firstName'] + ', ' + '<a style="color: white;" href="#" onclick="logout();">Logout</a>';
                 
                 document.getElementById('signupbutton').setAttribute('disabled','disabled');
+                document.getElementById('sign_up_error_msg').innerHTML = 'Already Signed in.';
+                document.getElementById('form_msg').style.display = "block";
 
             }
             
@@ -418,11 +914,13 @@
             
             
             function validate_signup(data){
-                console.log(data)
+                //console.log(data)
                 $('#ge_signup_form *').prop("disabled", false);
-                if(data['data']['ogxPhysicalSignup'] != null){
-                    window.location.href = '/thankyou.html';
-                }
+                token = data['data']['ogxSignup']['token']
+                setCookie("alpha_token", token, 1);
+                document.getElementById('current_user').innerHTML = 'Hello, ' + data['data']['ogxSignup']['applicant']['firstName'] + ', ' + '<a href="#" onclick="logout();">Logout</a>';
+                window.location.href = '/thankyou_ge.html';
+                
                 // Show the user that he Applied! Congrats!
             }
             function signup_request(){
@@ -432,9 +930,8 @@
                 var faculty_options = document.getElementById('faculty_options')
                 var faculty = faculty_options.options[faculty_options.selectedIndex].value;
                 
-                var product_options = document.getElementById('product_options')
-                var product = product_options.options[product_options.selectedIndex].value;
-                var referral = "UmVmZXJyYWxOb2RlOjI=";
+                var referral_options = document.getElementById('referral_options')
+                var referral = referral_options.options[referral_options.selectedIndex].value;
                 
                 var gender_options = document.getElementById('gender_options')
                 var gender = gender_options.options[gender_options.selectedIndex].value;
@@ -445,9 +942,10 @@
                 var reason_to_prevent_options = document.getElementById('prevent_reasons_options')
                 var reason_to_prevent = reason_to_prevent_options.options[reason_to_prevent_options.selectedIndex].value;
                 
-                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!,$campaign_id: ID!, $apply_reason: String!, $prevent_resaon: String!){
-    ogxPhysicalSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,marketingCampaign:$campaign_id, reasonToApply:$apply_reason, reasonToPrevent:$prevent_resaon)
+                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!, $slot_id: Int!, $apply_reason: String!, $prevent_resaon: String!){
+    ogxSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,reasonToApply:$apply_reason, slotId:$slot_id, reasonToPrevent:$prevent_resaon)
                   {
+                    token
                     applicant
                     {
                       firstName
@@ -482,10 +980,12 @@
                                       faculty: faculty,
                                       referral: referral,
                                       dob: document.getElementById('dob_field').value,
-                                      ogxBranch: product,
+                                      ogxBranch:9,
                                       graduationYear: document.getElementById('graduation_year_field').value,
                                       gender: gender,
-                                      campaign_id:campaign_id,
+                                      countryId: null,
+                                      opp_id: null,
+                                      slot_id: 1,
                                       apply_reason:reason_to_apply,
                                       prevent_resaon:reason_to_prevent,
                                     },
@@ -572,8 +1072,8 @@
                 var faculty_options = document.getElementById('faculty_options')
                 var faculty = faculty_options.options[faculty_options.selectedIndex].value;
                 
-                var product_options = document.getElementById('product_options')
-                var product = product_options.options[product_options.selectedIndex].value;
+                var referral_options = document.getElementById('referral_options')
+                var referral = referral_options.options[referral_options.selectedIndex].value;
                 
                 var gender_options = document.getElementById('gender_options')
                 var gender = gender_options.options[gender_options.selectedIndex].value;
@@ -607,6 +1107,12 @@
                     document.getElementById('form_msg').style.display = "block";
                     return false;
                 }
+                if (!email.includes('.')){
+                    var msg = "Please enter a valid email!";
+                    document.getElementById('sign_up_error_msg').innerHTML = msg;
+                    document.getElementById('form_msg').style.display = "block";
+                    return false;
+                }
                 if (password.length <= 8) {
                    var msg = "Your password must be more than 8 characters";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
@@ -619,7 +1125,7 @@
                 var lowerCase = false;
                 var i=0;
                 var character='';
-                var specials = ['"', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', "'\'", ']', '^', '_', '`', '{', '|', '}', '~' , '"']
+                var specials = ['"', '!', '"', '#', '$', '%' ,'&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', "'\'", ']', '^', '_', '`', '{', '|', '}', '~' , '"']
                 while (i < password.length){
                     character = password.charAt(i);
                     if (character != ' '){
@@ -688,8 +1194,8 @@
                     document.getElementById('form_msg').style.display = "block";
                     return false;
                 }
-                if (product == ""){
-                    var msg = "Please choose your Product"
+                if (referral == ""){
+                    var msg = "Please choose your Referral"
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
                     return false;
@@ -718,7 +1224,45 @@
                     $log.append( html );
                 });
             }
-            
+            function inject_referrals(data){
+                var referrals = data['data']['allReferrals']['edges'];
+                referrals.forEach(function(element) {
+                    var $log = $( "#referral_options" ),
+                    str = '<option value="' + element['node'].id + '">' + element['node'].formValue + '</option>',
+                    html = $.parseHTML( str ),
+                    nodeNames = [];
+                    $log.append( html );
+                });
+            }
+            function fetch_referrals(){
+                var query = `query Myquery {
+                 allReferrals
+                  {
+                    edges
+                    {
+                      node
+                      {
+                        id
+                        formValue
+                      }
+                    }
+                  }
+                }`;
+
+                data_ = fetch(endpoint + '/graphql', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    query,
+                  })
+                })
+                  .then(r => r.json())
+                  .then(data => inject_referrals(data));
+                //console.log(data_);
+            }
             function fetch_campuses(){
                 var query = `query Myquery {
                  allCampuses
@@ -778,83 +1322,6 @@
                   .then(data => inject_faculties(data));
                 //console.log(data_);
             }
-            function getUrlVars() {
-                var vars = {};
-                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                    vars[key] = value;
-                });
-                return vars;
-            }
-            function getUrlParam(parameter, defaultvalue){
-                var urlparameter = defaultvalue;
-                if(window.location.href.indexOf(parameter) > -1){
-                    urlparameter = getUrlVars()[parameter];
-                    }
-                return urlparameter;
-            }
-            function inject_campaign(data){
-                var now = new Date();
-              now.setHours(0,0,0,0);
-              expiry_date = data['data']['getCampaign']['endDate'];
-                start_date = data['data']['getCampaign']['startDate'];
-                var CurrentDate = new Date();
-                expiry_date = new Date(expiry_date);
-                start_date = new Date(start_date);
-
-                if(expiry_date < CurrentDate){
-                    window.location.href = '/index.html';
-                }
-                if(CurrentDate < start_date){
-                    window.location.href = '/index.html';
-                }
-                var campuses = data['data']['getCampaign']['campuses'];
-                campuses.forEach(function(element) {
-                    var $log = $( "#campus_options" ),
-                    str = '<option value="' + element.id + '">' + element.name + '</option>',
-                    html = $.parseHTML( str ),
-                    nodeNames = [];
-                    $log.append( html );
-                });
-            }
-            function fetch_campaign(campaign_id){
-                var query = `query Myquery($id: ID!) {
-                  getCampaign(id:$id)
-                  {
-                    id
-                    title
-                    startDate
-                    endDate
-                    campuses
-                    {
-                      id
-                      name
-                    }
-
-                    products
-                    {
-                      id
-                      name
-                    }
-                  }
-                }`;
-                
-                var variables = { id: campaign_id},
-
-                data_ = fetch(endpoint + '/graphql', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    query,
-                    variables,
-                  })
-                })
-                  .then(r => r.json())
-                  .then(data => inject_campaign(data));
-                //console.log(data_);
-            }
             function calculate_age(dob) { 
                 var diff_ms = Date.now() - dob.getTime();
                 var age_dt = new Date(diff_ms); 
@@ -862,13 +1329,10 @@
                 return Math.abs(age_dt.getUTCFullYear() - 1970);
             }
             function main(){
-                var campaign = getUrlParam("c", "");
-                if(campaign == null){
-                    window.location.href = '/index.html';
-                }
-                campaign_id = campaign;
+
                 var current_token = getCookie('alpha_token');
-                    if (current_token == ""){
+                    if (current_token == "")
+                    {
                         //console.log('Adding Sign in Button');
                         var $log = $( "#current_user"),
                         str = '<button class="button-secondary" onclick="sign_in_btn();"> <i class="fas fa-lock icon-left"></i>Login </button> ',
@@ -877,15 +1341,18 @@
                         $log.append( html );
                         
                     }
-                    else{
+                    else
+                    {
                         get_current_user(current_token)
                     }
-                fetch_campaign(campaign);
+                fetch_referrals();
                 fetch_faculties();
+                fetch_campuses();
+                
             }
             
             window.onload = main;
         
-        </script>
+        </script><a id="hotme" data-modal-target="client-login"></a>
 	</body>
 </html>

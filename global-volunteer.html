@@ -17,7 +17,7 @@
         <meta property="og:type" content="website">
         <meta property="og:title" content="AIESEC EGYPT">
         <meta property="og:description" content="AIESEC is the biggest youth run organization that aims to develop leadership potential through cross cultural exchange and practical experience.">
-        <meta property="og:url" content="http://aiesec.org.eg/">
+        <meta property="og:url" content="https://aiesec.org.eg/">
         <meta property="og:site_name" content="AIESEC in EGYPT">
         <meta property="article:publisher" content="https://www.facebook.com/aiesecegypt">
         <meta property="og:image" content="img/fb.jpg">
@@ -55,7 +55,7 @@
                                     <a href="global-volunteer.html">Global Volunteer</a>
                                 </li>
                                 <li>
-                                    <a href="global-entrepreneur.html">Global Entrepreneuer</a>
+                                    <a href="global-teacher.html">Global Teacher</a>
                                 </li>
                                 <li>
                                     <a href="global-talent.html">Global Talent</a>
@@ -203,7 +203,7 @@
 											<a href="global-volunteer.html">Global Volunteer</a>
 										</li>
 										<li>
-											<a href="global-entrepreneur.html">Global Entrepreneur</a>
+											<a href="global-teacher.html">Global Teacher</a>
 										</li>
 										<li>
 											<a href="global-talent.html">Global Talent</a>
@@ -471,6 +471,7 @@
 								</div>
 								<div class="modal-content">
                                     <div class="tab-group">
+                                      
                                         <div class="tab-item" data-title="Overview">
                                         <table>
                                           <thead>
@@ -482,16 +483,22 @@
                                               <td><span id="opp_title_details"></span></td>
                                             </tr>
                                             <tr>
-                                              <th scope="row"><strong>Start Date</strong></th>
-                                              <td><span id="opp_start_date"></span></td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row"><strong>End Date</strong></th>
-                                              <td><span id="opp_end_date"></span></td>
-                                            </tr>
+                                         
+                                              <th scope="row"><strong>Availability</strong></th>
+                                              <td><select id="opp_ava" name="type"  placeholder="Choose a start date">
+                                                <option value="" disabled="" selected="" >Choose a start date </option>
+                                                <span id="opp_ava"></span>
+                                              </select>
+                                                    <div id="slot_msg" style="display: none; border: 4px;">
+                                                      <span id="slot_error_msg" style="color: red;"></span>
+                                                      <div class="alert__close" onclick="document.getElementById('slot_msg').style.display = 'none';">
+                                                          </div>
+                                                      </div>
+                                            </td>
+                                            </tr
                                                <tr>
                                               <th scope="row"><strong>Duartion</strong></th>
-                                                   <td><span id="opp_duration"></span> weeks</td>
+                                                   <td><span id="opp_duration"></span></td>
                                             </tr>
                                                <tr>
                                               <th scope="row"><strong>Project Fees</strong></th>
@@ -581,10 +588,7 @@
                                                       <th scope="row">Visa Type</th>
                                                       <td><span id="opp_visa_type"></span></td>
                                                     </tr>
-                                                    <tr>
-                                                      <th scope="row">Visa Duration</th>
-                                                      <td><span id="opp_visa_duration"></span></td>
-                                                    </tr>
+                                                    
                                                     <tr>
                                                       <th scope="row">Visa Link</th>
                                                       <td><span id="opp_visa_link"></span></td>
@@ -626,10 +630,11 @@
             var preferred_country = null;
             var preferred_country_id = null;
             var preferred_opp = null;
+            var preferred_slot = null;
             var global_person_id = null;
             var page_index = 1;
             var opps_list = [];
-            var endpoint = "http://alpha.aiesec.org.eg"
+            var endpoint = "https://alpha.aiesec.org.eg"
             function listCookies() {
             var theCookies = document.cookie.split(';');
             var aString = '';
@@ -734,7 +739,18 @@
               );
               sensor = setInterval(check_auth, 1000);
             }	
-          
+            //  function show_duration(data) {
+            //    var slot_options = document.getElementById("opp_ava")
+            //    var slot_id = slot_options.options[slot_options.selectedIndex].value;
+            //    var slot_name = slot_name.options[slot_name.selectedIndex]
+            //    start = data['data']['getOpportunity'][slot_name]['start_date']
+            //    end = data['data']['getOpportunity'][slot_name]['end_date']
+            //    document.getElementById('opp_ava').
+            //     document.getElementById('opp_duration').innerHTML = "Projects starts from " + start + " to " + end;
+              
+
+            //  }
+             
 
             function show_user_data(data){
                 document.getElementById('current_user').innerHTML = 'Hello, ' + data['data']['currentuser']['profile']['firstName'] + ', ' + '<a style="color: white;" href="#" onclick="logout();">Logout</a>';
@@ -777,22 +793,29 @@
             }
             function validate_application(data){
                 update_user_apps(global_person_id);
+                // window.location.href = '/thankyou_gv.html';
             }
-            function apply_for(opp_id){
+            function apply_for(opp_id,slot_id){
                 var access_token = getCookie('alpha_token');
+                console.log
                 $("#opp_upper_cover *").attr("disabled", "disabled").off('click');
                 //alert(opp_id)
-                var query = `mutation MyMutation($opp_id: ID!){
-                  signedInApply(oppId:$opp_id)
+
+                var slot_options = document.getElementById("opp_ava")
+                var slot_id = slot_options.options[slot_options.selectedIndex].value;
+                var query = `mutation MyMutation($opp_id:ID!, $slot_id:ID!){
+                  signedInApply(oppId:$opp_id, slotId:$slot_id)
                   {
                     application
                     {
                       id
                       expaId
+                      slotId
                     }
                   }
                 }`;
-                    var variables = { opp_id: opp_id},
+                    var variables = { opp_id: opp_id,
+                    slot_id: slot_id},
                         
                     data_ = fetch(endpoint + '/graphql', {
                       method: 'POST',
@@ -809,22 +832,65 @@
                       .then(r => r.json())
                       .then(data => validate_application(data)); 
             }
+            function styling(){
+                 document.getElementById('apply_button').innerHTML = '<a class="button button-secondary" style="background-color: #F85A40;">Applied</a>';
+
+            }
+
             function apply(opp_id, country_id){
                 var current_token = getCookie('alpha_token');
+
+                // var slot = slot_options.options[slot_options.selectedIndex].value;
                 if (current_token == ""){
                     preferred_country = country_id;
                     preferred_opp = opp_id;
-                    show_signup_panel();
+                    var slots_options = document.getElementById('opp_ava')
+                  var slot_id = slots_options.options[slots_options.selectedIndex].value;
+                  console.log(slot_id)
+                  if (slot_id.length <= 0) {
+
+                    var msg = "Please choose a start date";
+                    document.getElementById('slot_error_msg').innerHTML = msg;
+                    document.getElementById('slot_msg').style.display = "block";
+                    return false;
+
+                    
+                  }
+                  else{
+                    preferred_slot = slot_id;
+                    show_signup_panel();}
+                    
+                    
+
                 }
+                
                 else{
-                    apply_for(opp_id);
+                  var slots_options = document.getElementById('opp_ava')
+                  var slot_id = slots_options.options[slots_options.selectedIndex].value;
+                  console.log(slot_id)
+
+                  if (slot_id.length <= 0) {
+
+                    var msg = "Please choose a start date";
+                    document.getElementById('slot_error_msg').innerHTML = msg;
+                    document.getElementById('slot_msg').style.display = "block";
+                                      console.log(slot_id)
+
+                    return false;
+                  }
+                  else{ apply_for(opp_id, slot_id);
+                  styling();
+
+                        }                    
+
+                   
                 }
             }
             function inject_country_opps(data, country_id){
                 var opps = data['data']['allOpportunity']['data'];
                 opps.forEach(function(element) {
                     var $log = $( "#opps_container" ),
-                    str = '<div class="product-box"> <div class="product-header"> <div class="column-row"> <div class="column-33"> <img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="'+ element.cover_photo+'"> </div> <div class="column-66" style="text-align: left;"> <p style="margin-left: 0px; margin-top: 0px;color: black;"><strong>'+ element.title +'</strong></p> <p style="margin-top: 0px;color: black;">'+ element.location +' . '+ element.earliest_start_date +' . '+ element.duration +' Weeks</p> <p style="margin-top: 0px;color: black;">Enabler Name</p> <p style="text-align: right; margin-right: 10px;"><a onclick="details_opp(' + "'" +element.id+ "'" +');" class="button">Learn More</a>&nbsp;&nbsp;<a id="opp_btn_'+element.id+'" onclick="apply(' + "'" +element.id+ "'," + "'" +country_id+ "'" +');" class="button button-secondary">Apply</a></p> </div> </div> </div> </div> ',
+                    str = '<div class="product-box"> <div class="product-header"> <div class="column-row"> <div class="column-33"> <img style="height: 100%; width: 100%; object-fit: cover;" alt="Image" src="'+ element.cover_photo.url+'"> </div> <div class="column-33" style="text-align: left;"> <p style="margin-left: 0px; margin-top: 0px;color: black;"><strong>'+ element.title +'</strong></p> <p style="margin-top: 0px;color: black;">'+ element.location +'  ' + ' </p> <p style="text-align: right; margin-right: 10px;"><a onclick="details_opp(' + "'" +element.id+ "'" +');" class="button offset-md-3">Learn More</a>&nbsp;&nbsp;</p> </div> </div> </div> </div> ',
                     html = $.parseHTML( str ),
                     nodeNames = [];
                     $log.append( html );
@@ -839,7 +905,7 @@
             }
             function load_country_opps(country_id){
                 var query = `query MyQuery($page: Int!, $country: Int!){
-                  allOpportunity(page:$page, filters:{committee:$country,programmes:1})
+                  allOpportunity(page:$page, filters:{committee:$country,programmes:7})
                   {
                     data
                     {
@@ -1004,7 +1070,7 @@
                 }`;
                 var variables = { id : person_id},
 
-                data_ = fetch('https://gis-api.aiesec.org/graphql?access_token=3c8012273344ea196bfe571c108bcbf7c583a37a7116cbbd2459071c13237a65', {
+                data_ = fetch('https://gis-api.aiesec.org/graphql?access_token=67803c4f6086283ff8728ba6da9ada440251ac588a0d05de32ffc2b03eb93d99', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
@@ -1026,7 +1092,7 @@
                 token = data['data']['ogxSignup']['token']
                 setCookie("alpha_token", token, 1);
                 document.getElementById('current_user').innerHTML = 'Hello, ' + data['data']['ogxSignup']['applicant']['firstName'] + ', ' + '<a href="#" onclick="logout();">Logout</a>';
-                //window.location.href = '/thankyou.html';
+                window.location.href = '/thankyou.html';
                 document.getElementById('coldme').click();
                 document.getElementById('country_link').click();
                 document.getElementById('opp_model_msg').innerHTML = "Succesfully Applied!";
@@ -1056,9 +1122,11 @@
                 
                 var reason_to_prevent_options = document.getElementById('prevent_reasons_options')
                 var reason_to_prevent = reason_to_prevent_options.options[reason_to_prevent_options.selectedIndex].value;
+                var slot_options = document.getElementById("opp_ava")
+                var slot_id = slot_options.options[slot_options.selectedIndex].value;
                 
-                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!,$apply_reason: String!, $prevent_resaon: String!, $opp_id: Int!, $countryId: Int!){
-    ogxSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,reasonToApply:$apply_reason, reasonToPrevent:$prevent_resaon, oppId:$opp_id,countryId:$countryId)
+                var query = `mutation MyMutation($firstname: String!, $lastname: String!, $email: String!, $password: String!, $phone: String!, $campus: ID!, $faculty: ID!, $referral: ID!,$dob: Date!, $ogxBranch: Int!, $graduationYear: Int!, $gender: String!,$apply_reason: String!, $prevent_resaon: String!, $opp_id: Int!, $slot_id: Int!, $countryId: Int!){
+    ogxSignup(firstName:$firstname,lastName:$lastname,email:$email,password:$password,phone:$phone,campus:$campus,faculty:$faculty,referral:$referral,dob:$dob, ogxBranch:$ogxBranch,graduationYear:$graduationYear,  gender:$gender,reasonToApply:$apply_reason, reasonToPrevent:$prevent_resaon, oppId:$opp_id, slotId:$slot_id, countryId:$countryId)
                   {
                     token
                     applicant
@@ -1095,11 +1163,12 @@
                                       faculty: faculty,
                                       referral: referral,
                                       dob: document.getElementById('dob_field').value,
-                                      ogxBranch: 1,
+                                      ogxBranch: 7,
                                       graduationYear: document.getElementById('graduation_year_field').value,
                                       gender: gender,
                                       countryId: preferred_country,
                                       opp_id: preferred_opp,
+                                      slot_id: slot_id,
                                       apply_reason:reason_to_apply,
                                       prevent_resaon:reason_to_prevent,
                                     },
@@ -1438,6 +1507,9 @@
                     return "No"
             }
             function show_opp(data){  
+
+              
+              
                 // Show Overview Tab
                 console.log(data);
                 preferred_country = data['data']['getOpportunity']['host_lc']['parent']['id'];
@@ -1445,7 +1517,7 @@
                 document.getElementById('back_btn').setAttribute('onclick', 'load_country_info("'+preferred_country_id+'")');
                 var current_token = getCookie('alpha_token');
                 if (current_token == ""){
-                    document.getElementById('apply_button').innerHTML = '<a onclick="show_signup_panel();");" class="button button-secondary" style="text-align: center;">Apply</a>';
+                    document.getElementById('apply_button').innerHTML = '<a onclick="apply(' + "'" + preferred_opp + "'," + "'" + preferred_country + "'" +');" class="button button-secondary" style="text-align: center;">Apply</a>';
                 }
                 else{
                     if(opps_list.includes(preferred_opp.toString())){
@@ -1458,11 +1530,44 @@
                 document.getElementById('opp_title').innerHTML = data['data']['getOpportunity']['title'];
                 document.getElementById('opp_location').innerHTML = data['data']['getOpportunity']['location'];
                 document.getElementById('opp_title_details').innerHTML = data['data']['getOpportunity']['title'];
-                document.getElementById('opp_start_date').innerHTML = data['data']['getOpportunity']['earliest_start_date'];
-                document.getElementById('opp_end_date').innerHTML = data['data']['getOpportunity']['latest_end_date'];
-                document.getElementById('opp_duration').innerHTML = data['data']['getOpportunity']['duration'];
+
+                // document.getElementById('opp_duration').innerHTML = data['data']['getOpportunity']['duration'] ;
                 document.getElementById('opp_tnfees').innerHTML = data['data']['getOpportunity']['project_fee']['fee'] +data['data']  ['getOpportunity']['project_fee']['currency'] ;
+               var slots = data['data']['getOpportunity']['available_slots'];
+              slots.forEach(function (element) {
+                console.log(element)
+                var $log = $("#opp_ava"),
+                  str = '<option value="' + element['id'] + '">' +"I will travel at: "+ element['start_date'] + '</option>',
+                  html = $.parseHTML(str),
+                  nodeNames = [];
+
+                $log.append(html);
                 
+                 
+                  
+
+              });
+              //  var slots_options = document.getElementById('opp_ava')
+              document.getElementById("opp_ava").addEventListener("click", myFunction);
+              function myFunction() {
+                    //  var slots_options = document.getElementById('opp_ava')
+                    var  indd = document.getElementById('opp_ava').selectedIndex;
+                // indd = indexOf(slots_options.options[slots_options.selectedIndex])
+                console.log(indd-1)
+                // var ind = parseInt(indd, 10);
+               document.getElementById('opp_duration').innerHTML = "Projects starts from " + data['data']['getOpportunity']['available_slots'][indd-1]['start_date'] + " to " + data['data']['getOpportunity']['available_slots'][indd-1]['end_date'];;
+              }
+              //  var sel = document.getElementById("opp_ava").selectedIndex;
+                // setInterval(sel, 1000)
+              // document.getElementById('opp_ava').('onclick', 'setInterval(sel, 1000);')
+              
+
+              //  console.log(sel)
+              // var slot_id = slots_options.options[slots_options.selectedIndex].value;
+              // console.log(slots_options)
+              // document.getElementById('opp_duration').innerHTML = "Projects starts from " + data['data']['getOpportunity']['available_slots'][sel]['start_date'] + " to " + data['data']['getOpportunity']['available_slots'][sel]['end_date']; 
+              
+
                 document.getElementById('opp_main_cover').setAttribute('style', 'background: url(" ' + data['data']['getOpportunity']['cover_photo'] +  ' "); opacity: 1;' );
                 // Role Tab
                 document.getElementById('role_descr').innerHTML = data['data']['getOpportunity']['description'];
@@ -1506,7 +1611,7 @@
                 
                 
                 // Logistics Tab
-                document.getElementById('opp_working_hours').innerHTML = 'From ' + data['data']['getOpportunity']['specifics_info']['expected_work_schedule']['from'] + ' To ' + data['data']['getOpportunity']['specifics_info']['expected_work_schedule']['to'];
+                document.getElementById('opp_working_hours').innerHTML = 'From ' + data['data']['getOpportunity']['work_hours'][0]['from'] + ' To ' + data['data']['getOpportunity']['work_hours'][0]['to'];
                 
                 document.getElementById('opp_computer_provided').innerHTML = prettify_booleans(data['data']['getOpportunity']['specifics_info']['computer']);
                 
@@ -1517,30 +1622,38 @@
                 document.getElementById('opp_food_covered').innerHTML = prettify_booleans(data['data']['getOpportunity']['logistics_info']['food_covered']);
                 
                 // Visa Tab
-                document.getElementById('opp_visa_type').innerHTML = data['data']['getOpportunity']['legal_info']['visa_type'];
-                document.getElementById('opp_visa_duration').innerHTML = data['data']['getOpportunity']['legal_info']['visa_duration'];
-                document.getElementById('opp_visa_link').innerHTML = data['data']['getOpportunity']['legal_info']['visa_link'];
-                document.getElementById('opp_health_insurance').innerHTML = data['data']['getOpportunity']['legal_info']['health_insurance_info'];
+                document.getElementById('opp_visa_type').innerHTML = data['data']['getOpportunity']['home_mc']['visa_requirements']['GV']['visa_type'];
+                document.getElementById('opp_visa_link').innerHTML = data['data']['getOpportunity']['home_mc']['visa_requirements']['GV']['visa_link'];
+                document.getElementById('opp_health_insurance').innerHTML = data['data']['getOpportunity']['home_mc']['visa_requirements']['GV']['health_insurance_link'];
                 
                 
                 
                 // Show the Modal
                 show_opp_details_panel();
-                //console.log(data);
+                console.log("panel");
             }
             function details_opp(opp_id){
                 var query = `query MyQuery($id: ID){
                   getOpportunity(id:$id)
                   { 
+                    work_hours
+                    available_slots{
+            applications_close_date
+            start_date
+            end_date
+            id
+             
+            }  
+
                     id
                     cover_photo
                     programme{short_name_display}
                     title
                     location
-                    earliest_start_date
-                    latest_end_date
-                    applications_close_date
-                    duration
+                   
+                    home_mc{
+              visa_requirements
+            }
                     description
                     role_info{learning_points_list}
                     sdg_info{sdg_target{
@@ -1563,12 +1676,7 @@
                     nationalities{constant_name}
                     languages{constant_name}
                     study_levels{name}
-                    legal_info{
-                      visa_type
-                      visa_duration
-                      visa_link
-                      health_insurance_info
-                    }
+                    
                     host_lc{
                       name
                       parent{id}
@@ -1580,7 +1688,7 @@
                 
                 var variables = { id: opp_id },
 
-                data_ = fetch('https://gis-api.aiesec.org/graphql?access_token=e316ebe109dd84ed16734e5161a2d236d0a7e6daf499941f7c110078e3c75493', {
+                data_ = fetch('https://gis-api.aiesec.org/graphql?access_token=67803c4f6086283ff8728ba6da9ada440251ac588a0d05de32ffc2b03eb93d99', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
@@ -1598,7 +1706,7 @@
                 if (current_token == "")
                 {
                     document.getElementById('apply_btn').setAttribute('onclick', 'show_signup_panel();')
-
+                        
                 }
                 else
                 {
@@ -1612,6 +1720,8 @@
 
                 return Math.abs(age_dt.getUTCFullYear() - 1970);
             }
+            // function inject_slots(data) {
+                
             function main(){
 
                 var current_token = getCookie('alpha_token');
