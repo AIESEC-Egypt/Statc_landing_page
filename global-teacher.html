@@ -1081,43 +1081,43 @@
                     var msg = "Please Enter Your First Name";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (lastname.length <= 0) {
                    var msg = "Please Enter Your Last Name";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (email.length < 4) {
                    var msg = "Please Enter a valid email.";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (email.includes(' ')){
                     var msg = "Please Remove Spaces from your email!";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (!email.includes('@') || !email.includes('.')){
                     var msg = "Please enter a valid email!";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (!email.includes('.')){
                     var msg = "Please enter a valid email!";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (password.length <= 8) {
                    var msg = "Your password must be more than 8 characters";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 
                 var numeric = false;
@@ -1150,55 +1150,55 @@
                     var msg = "Your password must contain a mixture of upper and lower case letters and at least one number";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false; 
+                    return ; 
                 }
                 if (phone.length != 11) {
                     var msg = "Please enter a valid 11 digits phone number.";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (dob.length <= 6) {
                     var msg = "Please enter a valid date of birth.";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (calculate_age(new Date(document.getElementById('dob_field').value)) > 30 || calculate_age(new Date(document.getElementById('dob_field').value)) < 18 ){
                     var msg = "You need to be between the age of 18 and 30 to apply."
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (graduation_year.length != 4) {
                     var msg = "Please enter a valid graduation year."
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                  }
                 if (campus == ""){
                     var msg = "Please choose your University"
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (faculty == ""){
                     var msg = "Please choose your Faculty"
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (gender == ""){
                     var msg = "Please choose your Gender"
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 if (referral == ""){
                     var msg = "Please choose your Referral"
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return false;
+                    return ;
                 }
                 unique_email(email);
                 
