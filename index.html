@@ -35,6 +35,36 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 		<!-- Header -->
+		<style>
+            .ps-trigger-btn{
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              z-index: 5;
+            }
+            .ps-container{
+              position: fixed;
+              bottom: 72px;
+              right: 50px;
+			        max-height: 80%;
+              display: none;
+              background-color: #D0D0D0;
+              border-radius: 10px;
+			        padding: 10px;
+			        z-index: 5;
+            }
+			      .text-area{
+				    height: 50px;
+
+			      }
+            .ps-form-error{
+              display: none;
+            }
+            .text-danger{
+                color: brown;
+            }
+        </style>
+
 		<header id="header" class="header-dynamic header-shadow-scroll">
 			<div class="container">
 				<a class="logo" href="index.html">
@@ -344,6 +374,47 @@
 					</div>
 				</div>
 			</section>
+			<div class="column-row">
+				<div class="page-content container-fluid ps-container column-flex">
+					<div class="row">
+					  <div class="col-3">
+						<div class="content-body">
+							<form class="form-full-width">
+								<div class="form-row">
+									<label for="ps-name">Your Name<small class="text-danger">*</small></label>
+									<input id="ps-name" type="text" class="form-control">
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="ps-email">Your Email<small class="text-danger">*</small></label>
+									<input id="ps-email" type="email" class="form-control">
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="ps-category">Support Type<small class="text-danger">*</small></label>
+									<select id="ps-category" class="form-control">
+										<option value="">------</option>
+									</select>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="ps-msg">Your message<small class="text-danger">*</small></label>
+									<textarea id="ps-msg" rows="3" class="form-control text-area" placeholder="Please explain what you need"></textarea>
+								</div>
+								<br>
+							</form>
+							<div class="ps-form-error">
+								<small class="text-danger ps-form-error">Kindly fill all the details!</small> <br>
+							</div>
+							<button id="submit" class="button-secondary ps-submit-btn">Submit</button>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			
+			  <button type="button" class="btn btn-raised btn-warning ps-trigger-btn">HELP</button>
+			
 		</footer>
 		<!-- Scripts -->
 		<script src="js/jquery.min.js"></script>
@@ -559,7 +630,121 @@
                     {
                         get_current_user(current_token)
                     }
-            }
+			}
+			     
+		$('.ps-trigger-btn').click(() => {
+			var ps_container = $('.ps-container')
+			if(ps_container.css('display') == 'block') {
+			ps_container.css('display','none');
+			} else {
+			ps_container.css('display','block');
+			if($('#ps-category')[0].options.length <= 1) {
+				fetchRequestCategories();
+			}
+			}
+		})
+
+
+
+		function fetchRequestCategories() {
+			var username = "endpointauth";
+			var mutation = "{externalLogin(username:\"" + username + "\"){token}}";
+			
+			var url_auth_raw = "https://alpha.aiesec.org.eg/graphql?query=mutation" + mutation;
+			var url_auth_encoded = encodeURI(url_auth_raw);
+			$.ajax({
+			url: url_auth_encoded,
+			type: 'post',
+			success: function(data){
+				var token_auth = "JWT " + data["data"]["externalLogin"]["token"];
+				var query = "{ allCustomerrequestcategories { edges { node { pk name }}}}";
+				var url_raw = 'https://alpha.aiesec.org.eg/graphql?query=' + query;
+				var url_encoded = encodeURI(url_raw);
+				$.ajax({
+				url: url_encoded,
+				type: 'post',
+				headers: {
+					'Authorization': token_auth
+				},
+				success: function(data){
+					var ps_category_list = data["data"]["allCustomerrequestcategories"]["edges"];
+					for(var i = 0; i < ps_category_list.length; i++) {
+					var new_option = new Option(ps_category_list[i]["node"]["name"], ps_category_list[i]["node"]["pk"]);
+					$(new_option).html(ps_category_list[i]["node"]["name"]);
+					$("#ps-category").append(new_option);
+					}
+				},
+				async: true
+				})
+			},
+			async: true
+			})
+		}
+
+
+
+
+		$('.ps-submit-btn').click(() => {
+			var name = $('#ps-name').val();
+			var email = $('#ps-email').val();
+			var category = $('#ps-category').val();
+			var msg = $('#ps-msg').val();
+			if( name && email && category && msg) {
+			$('.ps-form-error').css('display', 'none');
+			$('.ps-submit-btn').addClass('disabled');
+			submitPlatformSupportRequest(name, email, category, msg);
+			} else {
+			$('.ps-submit-btn').removeClass('disabled');
+			$('.ps-form-error').css('display', 'block');
+			}
+		});
+
+
+
+		function submitPlatformSupportRequest(name, email, category, msg) {
+			$('.ps-submit-btn').removeClass('disabled');
+			$('.ps-submit-btn').attr("disabled", "disabled").on('click');
+
+			var platform_index = 3;
+
+
+			var username = "endpointauth";
+			var mutation = "{externalLogin(username:\"" + username + "\"){token}}";
+			
+			var url_auth_raw = "https://alpha.aiesec.org.eg/graphql?query=mutation" + mutation;
+			var url_auth_encoded = encodeURI(url_auth_raw);
+			$.ajax({
+			url: url_auth_encoded,
+			type: 'post',
+			success: function(data){
+				var token_auth = "JWT " + data["data"]["externalLogin"]["token"];
+				var query = "{ addCustomerRequest ( input: { name: \"" + name + "\" email: \"" + email + "\" msg: \"" + msg + "\" category: " + category + " platform: " + platform_index + " }){ myCustomerrequest { id }}}";
+				var url_raw = 'https://alpha.aiesec.org.eg/graphql?query=mutation' + query;
+				var url_encoded = encodeURI(url_raw);
+				$.ajax({
+				url: url_encoded,
+				type: 'post',
+				headers: {
+					'Authorization': token_auth
+				},
+				success: function(data){
+					var ps_response = data;
+					
+					
+					$('.ps-form-error').css('display', 'none');
+					$('#ps-name').val('');
+					$('#ps-email').val('');
+					$('#ps-category').val('');
+					$('#ps-msg').val('');
+					alert('Your request has been recorded. It would be resolved soon.')
+				},
+				async: true
+				})
+			},
+			async: true
+			})
+		}
+
             
             window.onload = main;
         
