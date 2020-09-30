@@ -77,24 +77,12 @@
 		</header>
 		<!-- Content -->
 		
-			<section id="content">
+		<section id="content">
 			<!-- Content Row -->
-			<section class="content-row content-row-color content-row-clouds content-row-half-height">
+			<section id="products" class="content-row content-row-color content-row-clouds ">
 				<div class="container">
-					<div class="column-row align-center">
-						<div class="column-33 text-align-center">
-							<i class="fas fa-exclamation-circle icon-feature-large text-color-light"></i>
-						</div>
-						<div class="column-50">
-							<header class="content-header content-header-large content-header-align-left">
-								<h3>
-									Blog is Under Construction!
-								</h3>
-								<p>
-									We're very sorry but the page you were looking for is to be released soon.<br><br>
-									<a class="button button-secondary" href="index.html">Return Home<i class="fas fa-chevron-right icon-right"></i></a>
-								</p>
-							</header>
+					<div class="tab-group tab-group-switch-style">
+						<div class="tab-item blog-list" data-title="Monthly">
 						</div>
 					</div>
 				</div>
@@ -212,7 +200,82 @@
 		<script src="js/imagesloaded.min.js"></script>
 		<script src="js/bricks.min.js"></script>
 		<script src="js/main.min.js"></script>
-        <script>
+		
+
+		<script>
+			$(document).ready(() => {
+				fetchBlogs();
+			})
+
+			function fetchBlogs() {
+
+				var username = "endpointauth";
+				var mutation = "{externalLogin(username:\"" + username + "\"){token}}";
+
+				var url_auth_raw = "https://alpha.aiesec.org.eg/graphql?query=mutation" + mutation;
+				var url_auth_encoded = encodeURI(url_auth_raw);
+				$.ajax({
+					url: url_auth_encoded,
+					type: 'post',
+					success: function(data){
+						var token_auth = "JWT " + data["data"]["externalLogin"]["token"];
+						var query = `
+							query{
+								allBlogs{
+									edges{
+										node{
+											title
+											msg
+											image
+										}
+									}
+								}
+							}
+						`
+						var url_raw = 'https://alpha.aiesec.org.eg/graphql?query=' + query;
+						var url_encoded = encodeURI(url_raw);
+						$.ajax({
+							url: url_encoded,
+							type: 'post',
+							headers: {
+								'Authorization': token_auth
+							},
+							success: function(data){
+								var blog_length = data["data"]["allBlogs"]["edges"].length
+								for (let index = 0; index < blog_length; index++) {
+									var blog = data["data"]["allBlogs"]["edges"][index]["node"]
+									$('.blog-list').append(`
+										<div class="column-row align-center-bottom">
+											<div class="column-80">
+												<div class="product-box product-box-popular">
+												<div class="product-gv" style="background-color: #FFFFFF"></div>
+												<div class="product-header">
+													<img src="http://127.0.0.1:8000/media/${blog["image"]}" />
+												</div>
+												<hr>
+												<div class="product-features">
+													<h3><strong>${blog["title"]}</strong></h3>
+													<p>
+														${blog["msg"]}
+													</p>
+												</div>
+											</div>
+										</div>
+									`);
+								}
+
+							},
+							async: true
+						})
+					},
+					async: true
+				})
+			}
+		</script>
+		
+		
+		
+		<script>
         var close_menu_x = document.getElementById('nav-overlay-close')
         
         </script>
