@@ -202,10 +202,12 @@
             <div class="col-lg-2"></div>
           </div>
         </form>
-        <!-- <h5><span class="badge badge-pill badge-secondary">Country: India, Brazil, Sri Lanka</span></h5>
-        <h5><span class="badge badge-pill badge-secondary">Background: India, Brazil, Sri Lanka</span></h5>
-        <h5><span class="badge badge-pill badge-secondary">Skill: India, Brazil, Sri Lanka</span></h5>
-        <h5><span class="badge badge-pill badge-secondary">SDG: India, Brazil, Sri Lanka</span></h5> -->
+
+        <h5><span class="badge badge-pill badge-secondary country-chip do-not-display">Country : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary background-chip do-not-display">Background : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary skill-chip do-not-display">Skill : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary sdg-chip do-not-display">SDG : </span></h5>
+
       </div>
       <!-- Filter Form Ends -->
 
@@ -477,36 +479,55 @@
 
         $('.filter-checkbox').click(function() {
           element = $(this);
-
-
+          
           if(this.checked) {
             if(element.hasClass('country-filter-checkbox')) {
               var country_filters = window.sessionStorage.alpha_country_filters;
               if ((country_filters) && (country_filters != 'null')) {
                 window.sessionStorage.alpha_country_filters = country_filters + element.val() + ', ';
+                country_filters_string = `${$('.country-chip').html()} | ${element.next().text()}`;
+                country_filters_string = country_filters_string.replaceAll('|  |','|');
+                $('.country-chip').html(country_filters_string);
               } else {
                 window.sessionStorage.alpha_country_filters = element.val() + ', ';
+                $('.country-chip').html(`${$('.country-chip').html()} ${element.next().text()}`);
+                $('.country-chip').removeClass('do-not-display');
               }
             } else if (element.hasClass('background-filter-checkbox')) {
               var background_filters = window.sessionStorage.alpha_background_filters;
               if ((background_filters) && (background_filters != 'null')) {
                 window.sessionStorage.alpha_background_filters = background_filters + element.val() + ', ';
+                background_filters_string = `${$('.background-chip').html()} | ${element.next().text()}`;
+                background_filters_string = background_filters_string.replaceAll('|  |','|');
+                $('.background-chip').html(background_filters_string);
               } else {
                 window.sessionStorage.alpha_background_filters = element.val() + ', ';
+                $('.background-chip').html(`${$('.background-chip').html()} ${element.next().text()}`);
+                $('.background-chip').removeClass('do-not-display');
               }
             } else if (element.hasClass('skill-filter-checkbox')) {
               var skill_filters = window.sessionStorage.alpha_skill_filters;
               if ((skill_filters) && (skill_filters != 'null')) {
                 window.sessionStorage.alpha_skill_filters = skill_filters + element.val() + ', ';
+                skill_filters_string = `${$('.skill-chip').html()} | ${element.next().text()}`;
+                skill_filters_string = skill_filters_string.replaceAll('|  |','|');
+                $('.skill-chip').html(skill_filters_string);
               } else {
                 window.sessionStorage.alpha_skill_filters = element.val() + ', ';
+                $('.skill-chip').html(`${$('.skill-chip').html()} ${element.next().text()}`);
+                $('.skill-chip').removeClass('do-not-display');
               }
             } else if (element.hasClass('sdg-filter-checkbox')) {
               var sdg_filters = window.sessionStorage.alpha_sdg_filters;
               if ((sdg_filters) && (sdg_filters != 'null')) {
                 window.sessionStorage.alpha_sdg_filters = sdg_filters + element.val() + ', ';
+                sdg_filters_string = `${$('.sdg-chip').html()} | ${element.next().text()}`;
+                sdg_filters_string = sdg_filters_string.replaceAll('|  |','|');
+                $('.sdg-chip').html(sdg_filters_string);
               } else {
                 window.sessionStorage.alpha_sdg_filters = element.val() + ', ';
+                $('.sdg-chip').html(`${$('.sdg-chip').html()} ${element.next().text()}`);
+                $('.sdg-chip').removeClass('do-not-display');
               }
             }
           } else {
@@ -514,37 +535,52 @@
               var country_filters = window.sessionStorage.alpha_country_filters;
               if ((country_filters) && (country_filters != 'null') && ((country_filters.match(/,/g) || []).length > 1)) {
                 window.sessionStorage.alpha_country_filters = country_filters.replace(`${element.val()}, `, '');
+                country_removed = element.next().text();
+                country_filters_string = $('.country-chip').html().replace(country_removed, '').replaceAll('|  |','|');
+                $('.country-chip').html(country_filters_string);
               } else if (((country_filters.match(/,/g) || []).length == 1)) {
                 sessionStorage.removeItem('alpha_country_filters');
+                $('.country-chip').html('Country : ');
+                $('.country-chip').addClass('do-not-display');
               }
             } else if (element.hasClass('background-filter-checkbox')) {
               var background_filters = window.sessionStorage.alpha_background_filters;
               if ((background_filters) && (background_filters != 'null') && ((background_filters.match(/,/g) || []).length > 1)) {
                 window.sessionStorage.alpha_background_filters = background_filters.replace(`${element.val()}, `, '');
+                background_removed = element.next().text();
+                background_filters_string = $('.background-chip').html().replace(background_removed, '').replaceAll('|  |','|');
+                $('.background-chip').html(background_filters_string);
               } else if (((background_filters.match(/,/g) || []).length == 1)) {
                 sessionStorage.removeItem('alpha_background_filters');
+                $('.background-chip').html('Background : ');
+                $('.background-chip').addClass('do-not-display');
               }
             } else if (element.hasClass('skill-filter-checkbox')) {
               var skill_filters = window.sessionStorage.alpha_skill_filters;
               if ((skill_filters) && (skill_filters != 'null') && ((skill_filters.match(/,/g) || []).length > 1)) {
                 window.sessionStorage.alpha_skill_filters = skill_filters.replace(`${element.val()}, `, '');
+                skill_removed = element.next().text();
+                skill_filters_string = $('.skill-chip').html().replace(skill_removed, '').replaceAll('|  |','|');
+                $('.skill-chip').html(skill_filters_string);
               } else if (((skill_filters.match(/,/g) || []).length == 1)) {
                 sessionStorage.removeItem('alpha_skill_filters');
+                $('.skill-chip').html('Skill : ');
+                $('.skill-chip').addClass('do-not-display');
               }
             } else if (element.hasClass('sdg-filter-checkbox')) {
               var sdg_filters = window.sessionStorage.alpha_sdg_filters;
               if ((sdg_filters) && (sdg_filters != 'null') && ((sdg_filters.match(/,/g) || []).length > 1)) {
                 window.sessionStorage.alpha_sdg_filters = sdg_filters.replace(`${element.val()}, `, '');
+                sdg_removed = element.next().text();
+                sdg_filters_string = $('.sdg-chip').html().replace(sdg_removed, '').replaceAll('|  |','|');
+                $('.sdg-chip').html(sdg_filters_string);
               } else if (((sdg_filters.match(/,/g) || []).length == 1)) {
                 sessionStorage.removeItem('alpha_sdg_filters');
+                $('.sdg-chip').html('SDG : ');
+                $('.sdg-chip').addClass('do-not-display');
               }
             }
           }
-
-          console.log(window.sessionStorage.alpha_country_filters);
-          console.log(window.sessionStorage.alpha_background_filters);
-          console.log(window.sessionStorage.alpha_skill_filters);
-          console.log(window.sessionStorage.alpha_sdg_filters);
 
           fetch_opportunities();
           
@@ -597,24 +633,6 @@
 
         fetch_opportunities();
       }
-
-      /* 
-      function apply_filters(){
-        start_spinner();
-
-        country_filters = $('#country-filter-dropdown').val();
-        background_filters = $('#background-filter-dropdown').val();
-        skill_filters = $('#skill-filter-dropdown').val();
-        sdg_filters = $('#sdg-filter-dropdown').val();
-
-        window.sessionStorage.alpha_country_filters =  country_filters;
-        window.sessionStorage.alpha_background_filters =  background_filters;
-        window.sessionStorage.alpha_skill_filters =  skill_filters;
-        window.sessionStorage.alpha_sdg_filters =  sdg_filters;
-
-        fetch_opportunities();
-      }
-      */
 
       function fetch_opportunities(){
 
