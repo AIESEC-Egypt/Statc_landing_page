@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </head>
@@ -142,33 +142,52 @@
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
               <div class="form-group">
                 <!-- <label for="country-filter-dropdown">Select Country</label> -->
-                <select class="form-control" id="country-filter-dropdown">
-                  <option value="" disabled selected>Country..</option>
-                </select>
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-country" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Country
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-country" id="country-filter-dropdown">
+                    <div class="dropdown-item">
+                      <!-- <input type="text" class="" placeholder="Search.."> -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
               <div class="form-group">
                 <!-- <label for="background-filter-dropdown">Select Background</label> -->
-                <select class="form-control" id="background-filter-dropdown">
-                  <option value="" disabled selected>Background..</option>
-                </select>
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-background" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Background
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-background" id="background-filter-dropdown">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
               <div class="form-group">
                 <!-- <label for="skill-filter-dropdown">Select Skills</label> -->
-                <select class="form-control" id="skill-filter-dropdown">
-                  <option value="" disabled selected>Skill..</option>
-                </select>
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-skill" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Skill
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-skill" id="skill-filter-dropdown">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
               <div class="form-group">
                 <!-- <label for="sdg-filter-dropdown">Select SDGs</label> -->
-                <select class="form-control" id="sdg-filter-dropdown">
-                  <option value="" disabled selected>SDG..</option>
-                </select>
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-sdg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDG
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-sdg" id="sdg-filter-dropdown">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-2"></div>
@@ -187,7 +206,7 @@
       <br><br>
 
       <!-- Opportunity Card Starts -->
-      <div class="container opportunity-list">
+      <div class="container opportunity-list inner-content-container do-not-display">
         <!-- 
         <div class="card mb-6" style="max-width: 100%; min-height: 300px;">
           <div class="row no-gutters">
@@ -205,9 +224,18 @@
         </div> 
         -->
       </div>
+
+      <div class="inner-spinner-container">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
       <!-- Opportunity Card Ends -->
     </div>
 
+    <!-- Spinner Starts -->
     <div class="spinner-container">
       <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
@@ -215,6 +243,7 @@
         </div>
       </div>
     </div>
+    <!-- Spinner Ends -->
 
 
     <!-- JavaScript Starts -->
@@ -260,15 +289,25 @@
         })
         .then(r => r.json())
         .then(data => {
-          inject_countries(data)});
+          inject_countries(data)})
+        .then(() => {
+          fetch_backgrounds();
+        });
     }
 
       function inject_countries(data){
         var countries = data['data']['allCountries']['edges'];
         countries.forEach(function(element) {
-          var new_option = new Option(element["node"].name, element["node"].expaId);
-					$(new_option).html(element["node"].name);
-					$("#country-filter-dropdown").append(new_option);                 
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#country-filter-dropdown").append(`
+            <div class="form-check dropdown-item">
+              <input class="form-check-input filter-checkbox country-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="country-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="country-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                 
         });
     }
     
@@ -296,15 +335,25 @@
         })
         .then(r => r.json())
         .then(data => {
-          inject_backgrounds(data)});
+          inject_backgrounds(data)})
+        .then(() => {
+          fetch_skills();
+        });
     }
 
       function inject_backgrounds(data){
         var backgrounds = data['data']['allBackgrounds']['edges'];
         backgrounds.forEach(function(element) {
-          var new_option = new Option(element["node"].name, element["node"].expaId);
-					$(new_option).html(element["node"].name);
-					$("#background-filter-dropdown").append(new_option);                 
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#background-filter-dropdown").append(`
+            <div class="form-check dropdown-item">
+              <input class="form-check-input filter-checkbox background-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="background-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="background-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                  
         });
     }
     
@@ -332,15 +381,25 @@
         })
         .then(r => r.json())
         .then(data => {
-          inject_skills(data)});
+          inject_skills(data)})
+        .then(() => {
+          fetch_sdgs();
+        });
     }
 
       function inject_skills(data){
         var skills = data['data']['allSkills']['edges'];
         skills.forEach(function(element) {
-          var new_option = new Option(element["node"].name, element["node"].expaId);
-					$(new_option).html(element["node"].name);
-					$("#skill-filter-dropdown").append(new_option);                 
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#skill-filter-dropdown").append(`
+            <div class="form-check dropdown-item">
+              <input class="form-check-input filter-checkbox skill-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="skill-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="skill-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);            
         });
     }
 
@@ -368,23 +427,31 @@
         })
         .then(r => r.json())
         .then(data => {
-          inject_sdgs(data)});
+          inject_sdgs(data)})
+        .then(() => {
+          detect_filter_changes()})
+        .then(() => {
+          stop_spinner()});
     }
 
       function inject_sdgs(data){
         var sdgs = data['data']['allSdgs']['edges'];
         sdgs.forEach(function(element) {
-          var new_option = new Option(element["node"].name, element["node"].expaId);
-					$(new_option).html(element["node"].name);
-					$("#sdg-filter-dropdown").append(new_option);                 
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#sdg-filter-dropdown").append(`
+            <div class="form-check dropdown-item">
+              <input class="form-check-input filter-checkbox sdg-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="sdg-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="sdg-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                   
         });
     }
 
       function fetch_filter_data() {
         fetch_countries();
-        fetch_backgrounds();
-        fetch_skills();
-        fetch_sdgs();
       }   
       
       /* Fetch Data For Filter Ends */
@@ -392,6 +459,93 @@
 
 
       /* Applying Filters and Fetching opportunities starts */
+      function reset_filters() {
+        sessionStorage.removeItem('alpha_country_filters');
+        sessionStorage.removeItem('alpha_background_filters');
+        sessionStorage.removeItem('alpha_skill_filters');
+        sessionStorage.removeItem('alpha_sdg_filters');
+      }
+
+      function detect_filter_changes() {
+        reset_filters();
+
+        $('.filter-checkbox').click(function() {
+          element = $(this);
+
+
+          if(this.checked) {
+            if(element.hasClass('country-filter-checkbox')) {
+              var country_filters = window.sessionStorage.alpha_country_filters;
+              if ((country_filters) && (country_filters != 'null')) {
+                window.sessionStorage.alpha_country_filters = country_filters + element.val() + ', ';
+              } else {
+                window.sessionStorage.alpha_country_filters = element.val() + ', ';
+              }
+            } else if (element.hasClass('background-filter-checkbox')) {
+              var background_filters = window.sessionStorage.alpha_background_filters;
+              if ((background_filters) && (background_filters != 'null')) {
+                window.sessionStorage.alpha_background_filters = background_filters + element.val() + ', ';
+              } else {
+                window.sessionStorage.alpha_background_filters = element.val() + ', ';
+              }
+            } else if (element.hasClass('skill-filter-checkbox')) {
+              var skill_filters = window.sessionStorage.alpha_skill_filters;
+              if ((skill_filters) && (skill_filters != 'null')) {
+                window.sessionStorage.alpha_skill_filters = skill_filters + element.val() + ', ';
+              } else {
+                window.sessionStorage.alpha_skill_filters = element.val() + ', ';
+              }
+            } else if (element.hasClass('sdg-filter-checkbox')) {
+              var sdg_filters = window.sessionStorage.alpha_sdg_filters;
+              if ((sdg_filters) && (sdg_filters != 'null')) {
+                window.sessionStorage.alpha_sdg_filters = sdg_filters + element.val() + ', ';
+              } else {
+                window.sessionStorage.alpha_sdg_filters = element.val() + ', ';
+              }
+            }
+          } else {
+            if(element.hasClass('country-filter-checkbox')) {
+              var country_filters = window.sessionStorage.alpha_country_filters;
+              if ((country_filters) && (country_filters != 'null') && ((country_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_country_filters = country_filters.replace(`${element.val()}, `, '');
+              } else if (((country_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_country_filters');
+              }
+            } else if (element.hasClass('background-filter-checkbox')) {
+              var background_filters = window.sessionStorage.alpha_background_filters;
+              if ((background_filters) && (background_filters != 'null') && ((background_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_background_filters = background_filters.replace(`${element.val()}, `, '');
+              } else if (((background_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_background_filters');
+              }
+            } else if (element.hasClass('skill-filter-checkbox')) {
+              var skill_filters = window.sessionStorage.alpha_skill_filters;
+              if ((skill_filters) && (skill_filters != 'null') && ((skill_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_skill_filters = skill_filters.replace(`${element.val()}, `, '');
+              } else if (((skill_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_skill_filters');
+              }
+            } else if (element.hasClass('sdg-filter-checkbox')) {
+              var sdg_filters = window.sessionStorage.alpha_sdg_filters;
+              if ((sdg_filters) && (sdg_filters != 'null') && ((sdg_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_sdg_filters = sdg_filters.replace(`${element.val()}, `, '');
+              } else if (((sdg_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_sdg_filters');
+              }
+            }
+          }
+
+          console.log(window.sessionStorage.alpha_country_filters);
+          console.log(window.sessionStorage.alpha_background_filters);
+          console.log(window.sessionStorage.alpha_skill_filters);
+          console.log(window.sessionStorage.alpha_sdg_filters);
+
+          fetch_opportunities();
+          
+        });
+        
+        fetch_opportunities();
+      }
 
       function apply_filters(){
         start_spinner();
@@ -410,6 +564,9 @@
       }
 
       function fetch_opportunities(){
+
+        start_inner_spinner();
+
         var country_filters = window.sessionStorage.alpha_country_filters;
         var background_filters = window.sessionStorage.alpha_background_filters;
         var skill_filters = window.sessionStorage.alpha_skill_filters;
@@ -417,16 +574,16 @@
 
         var filter_string = `{ exclude_home_mcs: 1609 `;
 
-        if(country_filters != 'null'){
-          filter_string = filter_string + `committee: ${country_filters} `
+        if((country_filters) && (country_filters != 'null')){
+          filter_string = filter_string + `home_mcs: [${country_filters}] `
         }
-        if(background_filters != 'null'){
+        if((background_filters) && (background_filters != 'null')){
           filter_string = filter_string + `background_ids: [${background_filters}] `
         }
-        if(skill_filters != 'null'){
+        if((skill_filters) && (skill_filters != 'null')){
           filter_string = filter_string + `skill_ids: [${skill_filters}] `
         }
-        // if(sdg_filters != 'null'){
+        // if((sdg_filters) && (sdg_filters != 'null')){
         //   filter_string = filter_string + `sdg_targets: [${sdg_filters}] `
         // }
         filter_string = filter_string + ` }`;
@@ -467,7 +624,7 @@
           inject_opportunities(data);
         })
         .then(() => {
-          stop_spinner();
+          stop_inner_spinner();
         });
       }
 
@@ -522,6 +679,16 @@
         $('.spinner-container').addClass('do-not-display');
         $('.content-container').removeClass('do-not-display');
       }
+
+      function start_inner_spinner() {
+        $('.inner-spinner-container').removeClass('do-not-display');
+        $('.inner-content-container').addClass('do-not-display');
+      }
+
+      function stop_inner_spinner() {
+        $('.inner-spinner-container').addClass('do-not-display');
+        $('.inner-content-container').removeClass('do-not-display');
+      }
       
       /* Spinner Action Ends */
 
@@ -536,7 +703,6 @@
 
       function main(){
         fetch_filter_data();
-        apply_filters();
       }
 
       window.onload = main;
