@@ -148,7 +148,7 @@
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-country" id="country-filter-dropdown">
                     <div class="dropdown-item">
-                      <!-- <input type="text" class="" placeholder="Search.."> -->
+                      <input type="text" class="filter-search-dropdown country-filter-search-dropdown" placeholder="Search..">
                     </div>
                   </div>
                 </div>
@@ -162,6 +162,9 @@
                     Background
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-background" id="background-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown background-filter-search-dropdown" placeholder="Search..">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -174,6 +177,9 @@
                     Skill
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-skill" id="skill-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown skill-filter-search-dropdown" placeholder="Search..">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -186,20 +192,20 @@
                     SDG
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-sdg" id="sdg-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown sdg-filter-search-dropdown" placeholder="Search..">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-2"></div>
           </div>
-          <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-              <button type="button" class="btn btn-block btn-dark btn-custom" onclick="apply_filters();">Apply Filters</button>
-            </div>
-            <div class="col-lg-2"></div>
-          </div>
         </form>
+        <!-- <h5><span class="badge badge-pill badge-secondary">Country: India, Brazil, Sri Lanka</span></h5>
+        <h5><span class="badge badge-pill badge-secondary">Background: India, Brazil, Sri Lanka</span></h5>
+        <h5><span class="badge badge-pill badge-secondary">Skill: India, Brazil, Sri Lanka</span></h5>
+        <h5><span class="badge badge-pill badge-secondary">SDG: India, Brazil, Sri Lanka</span></h5> -->
       </div>
       <!-- Filter Form Ends -->
 
@@ -301,7 +307,7 @@
           // var new_option = new Option(element["node"].name, element["node"].expaId);
 					// $(new_option).html(element["node"].name);
 					$("#country-filter-dropdown").append(`
-            <div class="form-check dropdown-item">
+            <div class="form-check dropdown-item" id="form-check-country-${element["node"].expaId}">
               <input class="form-check-input filter-checkbox country-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="country-filter-checkbox-${element["node"].name}">
               <label class="form-check-label" for="country-filter-checkbox-${element["node"].name}">
                 ${element["node"].name}
@@ -347,7 +353,7 @@
           // var new_option = new Option(element["node"].name, element["node"].expaId);
 					// $(new_option).html(element["node"].name);
 					$("#background-filter-dropdown").append(`
-            <div class="form-check dropdown-item">
+            <div class="form-check dropdown-item" id="form-check-background-${element["node"].expaId}">
               <input class="form-check-input filter-checkbox background-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="background-filter-checkbox-${element["node"].name}">
               <label class="form-check-label" for="background-filter-checkbox-${element["node"].name}">
                 ${element["node"].name}
@@ -393,7 +399,7 @@
           // var new_option = new Option(element["node"].name, element["node"].expaId);
 					// $(new_option).html(element["node"].name);
 					$("#skill-filter-dropdown").append(`
-            <div class="form-check dropdown-item">
+            <div class="form-check dropdown-item" id="form-check-skill-${element["node"].expaId}">
               <input class="form-check-input filter-checkbox skill-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="skill-filter-checkbox-${element["node"].name}">
               <label class="form-check-label" for="skill-filter-checkbox-${element["node"].name}">
                 ${element["node"].name}
@@ -440,7 +446,7 @@
           // var new_option = new Option(element["node"].name, element["node"].expaId);
 					// $(new_option).html(element["node"].name);
 					$("#sdg-filter-dropdown").append(`
-            <div class="form-check dropdown-item">
+            <div class="form-check dropdown-item" id="form-check-sdg-${element["node"].expaId}">
               <input class="form-check-input filter-checkbox sdg-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="sdg-filter-checkbox-${element["node"].name}">
               <label class="form-check-label" for="sdg-filter-checkbox-${element["node"].name}">
                 ${element["node"].name}
@@ -544,9 +550,55 @@
           
         });
         
+        $('.filter-search-dropdown').keyup(function() {
+          var search_key = $(this).val().toLowerCase();
+          if ($(this).hasClass('country-filter-search-dropdown')) {
+            $('.country-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var country_label = element.attr('id').replace('country-filter-checkbox-','').toLowerCase();
+              if(country_label.includes(search_key)) {
+                $(`#form-check-country-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-country-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('background-filter-search-dropdown')) {
+            $('.background-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var background_label = element.attr('id').replace('background-filter-checkbox-','').toLowerCase();
+              if(background_label.includes(search_key)) {
+                $(`#form-check-background-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-background-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('skill-filter-search-dropdown')) {
+            $('.skill-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var skill_label = element.attr('id').replace('skill-filter-checkbox-','').toLowerCase();
+              if(skill_label.includes(search_key)) {
+                $(`#form-check-skill-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-skill-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('sdg-filter-search-dropdown')) {
+            $('.sdg-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var sdg_label = element.attr('id').replace('sdg-filter-checkbox-','').toLowerCase();
+              if(sdg_label.includes(search_key)) {
+                $(`#form-check-sdg-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-sdg-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          }  
+        })
+
         fetch_opportunities();
       }
 
+      /* 
       function apply_filters(){
         start_spinner();
 
@@ -562,6 +614,7 @@
 
         fetch_opportunities();
       }
+      */
 
       function fetch_opportunities(){
 
