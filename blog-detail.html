@@ -40,6 +40,15 @@
     </head>
 <body>
     <style>
+        a {
+            color: inherit;
+        }
+
+        a:hover {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
         .do-not-display {
             display: none;
         }
@@ -67,50 +76,51 @@
             left: 20px;
         }
     </style>
+    
+    <!-- Navbar Starts -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logos/header-light.png" height="30" alt="" loading="lazy" class="pl-4">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item active user-details">
+                </li>
+                <li class="nav-item active login-status">
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
 
     <div class="content-container do-not-display">
-        <!-- Navbar Starts -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="./img/logos/header-light.png" height="30" alt="" loading="lazy" class="pl-4">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mr-0">
-                    <li class="nav-item active user-details">
-                    </li>
-                    <li class="nav-item active login-status">
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- Navbar Ends -->
 
         <!-- Blog Detail Section Starts -->
         <div class="container">
@@ -133,6 +143,49 @@
             </div>
         </div>
         <!-- Blog Detail Section Ends -->
+
+        <br><br>
+        <!-- Footer Starts -->
+        <footer class="bg-dark mt-5 text-white" style="bottom: 0;">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="col-lg-4 p-5">
+                        <h5 class="font-weight-bold">AIESEC</h5>
+                        <br>
+                        <p>
+                            AIESEC is a non-governmental not-for-profit organisation in consultative status with the United Nations Economic and Social Council (ECOSOC), affiliated with the UN DPI, member of ICMYO, and is recognized by UNESCO. AIESEC International is registered as a Foundation (Stichting), RSIN #807103895 in Rotterdam, The Netherlands.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="col-lg-2 p-5">
+                        <h5 class="font-weight-bold">CONNECT TO US</h5>
+                        <br>
+                        <p><a href="#"><i class="fa fa-instagram"></i>&nbsp;&nbsp;Instagram</a></p>
+                        <p><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;Facebook</a></p>
+                        <p><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></p>
+                    </div>
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="col-lg-2 p-5">
+                        <h5 class="font-weight-bold">OPPORTUNITIES</h5>
+                        <br>
+                        <p><a href="#">Global Volunteer</a></p>
+                        <p><a href="#">Global Talent</a></p>
+                        <p><a href="#">Global Teacher</a></p>
+                    </div>
+
+                    <div class="col-lg-1"></div>
+
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Ends -->
     </div>
 
     <!-- Spinner Starts -->

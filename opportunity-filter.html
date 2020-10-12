@@ -37,6 +37,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/7bcb44edef.js"></script>
   </head>
 
   <body>
@@ -45,6 +46,15 @@
       body {
         background-color: #7E9CB3;
         font-family: 'Montserrat', 'Roboto';
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:hover {
+        color: inherit;
+        text-decoration: inherit;
       }
 
       nav {
@@ -129,7 +139,7 @@
           </ul>
       </div>
     </nav>
-  <!-- Navbar Ends -->
+    <!-- Navbar Ends -->
 
     <br><br>
 
@@ -241,6 +251,50 @@
         </div>
       </div>
       <!-- Opportunity Card Ends -->
+
+      <br><br>
+      <!-- Footer Starts -->
+      <footer class="bg-dark mt-5 text-white" style="bottom: 0;">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-4 p-5">
+                    <h5 class="font-weight-bold">AIESEC</h5>
+                    <br>
+                    <p>
+                        AIESEC is a non-governmental not-for-profit organisation in consultative status with the United Nations Economic and Social Council (ECOSOC), affiliated with the UN DPI, member of ICMYO, and is recognized by UNESCO. AIESEC International is registered as a Foundation (Stichting), RSIN #807103895 in Rotterdam, The Netherlands.
+                    </p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-2 p-5">
+                    <h5 class="font-weight-bold">CONNECT TO US</h5>
+                    <br>
+                    <p><a href="#"><i class="fa fa-instagram"></i>&nbsp;&nbsp;Instagram</a></p>
+                    <p><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;Facebook</a></p>
+                    <p><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-2 p-5">
+                    <h5 class="font-weight-bold">OPPORTUNITIES</h5>
+                    <br>
+                    <p><a href="#">Global Volunteer</a></p>
+                    <p><a href="#">Global Talent</a></p>
+                    <p><a href="#">Global Teacher</a></p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+            </div>
+        </div>
+      </footer>
+      <!-- Footer Ends -->
+
     </div>
 
     <!-- Spinner Starts -->
@@ -253,6 +307,7 @@
     </div>
     <!-- Spinner Ends -->
 
+    
 
     <!-- JavaScript Starts -->
     <script>
@@ -479,7 +534,7 @@
 
         $('.filter-checkbox').click(function() {
           element = $(this);
-          
+
           if(this.checked) {
             if(element.hasClass('country-filter-checkbox')) {
               var country_filters = window.sessionStorage.alpha_country_filters;
