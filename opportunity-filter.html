@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T4PJSH2');</script>
+    <!-- End Google Tag Manager -->
+		<meta charset="UTF-8">
+		<title>Opp-Filter | AIESEC in EGYPT</title>
+		<meta name="description" content="AIESEC develops the next generation of young leaders with impactful professional and volunteering experiences to activate their leadership potential.">
+		<meta name="keywords" content="volunteer, world, impact, creative, inspiration, youth">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:sessione" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AIESEC EGYPT">
+    <meta property="og:description" content="AIESEC is the biggest youth run organization that aims to develop leadership potential through cross cultural exchange and practical experience.">
+    <meta property="og:url" content="https://aiesec.org.eg/">
+    <meta property="og:site_name" content="AIESEC in EGYPT">
+    <meta property="article:publisher" content="https://www.facebook.com/aiesecegypt">
+    <meta property="og:image" content="img/fb.jpg">
+    
+    <!-- Icons -->
+		<link rel="apple-touch-icon-precomposed" href="img/icons/apple-touch-icon.png">
+		<link rel="icon" href="img/logos/AIESEC-Favicon-309x341.png">
+    
+    <!-- Stylesheets -->
+		<link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="css/main.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/7bcb44edef.js"></script>
+  </head>
+
+  <body>
+
+    <style>
+      body {
+        background-color: #7E9CB3;
+        font-family: 'Montserrat', 'Roboto';
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:hover {
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      nav {
+        background-color: #51585E;
+      }
+
+      .do-not-display {
+        display: none;
+      }
+
+      .opportunity-card {
+        max-width: 100%; 
+        min-height: 300px; 
+        justify-content: center; 
+        cursor: pointer; 
+        border: solid 3px #555555;
+        border-radius: 15px;
+      }
+
+      .opportunity-card-img-div {
+        background-color: rgba(89, 122, 147, 0.5);
+        display: flex; 
+        align-items: center; 
+        border-radius: 10px;
+        box-shadow: 3px 5px 10px 5px rgba(54, 63, 63, 0.7);
+      }
+
+      .opportunity-card-text-div {
+        margin-left: 30px;
+      }
+
+      .btn-custom {
+        box-shadow: 3px 5px 10px 5px rgba(44, 58, 70, 0.5);
+      }
+
+      @media only screen and (max-width: 767px) {
+        .opportunity-card-text-div {
+          margin-left: 0px;
+          margin-top: 10px;
+        }
+      }
+    </style>
+
+    <!-- Navbar Starts -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">
+              <img src="./img/logos/header-light.png" height="30" alt="" loading="lazy" class="pl-4">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav mr-0">
+              <li class="nav-item active user-details">
+              </li>
+              <li class="nav-item active login-status">
+              </li>
+          </ul>
+      </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <br><br>
+
+    <div class="content-container do-not-display">
+      <!-- Filter Form Starts -->
+      <div class="container">
+        <form>
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <!-- <label for="country-filter-dropdown">Select Country</label> -->
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-country" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Country
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-country" id="country-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown country-filter-search-dropdown" placeholder="Search..">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <!-- <label for="background-filter-dropdown">Select Background</label> -->
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-background" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Background
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-background" id="background-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown background-filter-search-dropdown" placeholder="Search..">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <!-- <label for="skill-filter-dropdown">Select Skills</label> -->
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-skill" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Skill
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-skill" id="skill-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown skill-filter-search-dropdown" placeholder="Search..">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <!-- <label for="sdg-filter-dropdown">Select SDGs</label> -->
+                <div class="dropright">
+                  <button class="btn btn-light btn-block dropdown-toggle" type="button" id="dropdownMenuButton-sdg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDG
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-sdg" id="sdg-filter-dropdown">
+                    <div class="dropdown-item">
+                      <input type="text" class="filter-search-dropdown sdg-filter-search-dropdown" placeholder="Search..">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </form>
+
+        <h5><span class="badge badge-pill badge-secondary country-chip do-not-display">Country : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary background-chip do-not-display">Background : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary skill-chip do-not-display">Skill : </span></h5>
+        <h5><span class="badge badge-pill badge-secondary sdg-chip do-not-display">SDG : </span></h5>
+
+      </div>
+      <!-- Filter Form Ends -->
+
+      <br><br>
+
+      <!-- Opportunity Card Starts -->
+      <div class="container opportunity-list inner-content-container do-not-display">
+        <!-- 
+        <div class="card mb-6" style="max-width: 100%; min-height: 300px;">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src="../Statc_landing_page/img/logos/gt_big_logo.png" class="card-img" alt="...">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div> 
+        -->
+      </div>
+
+      <div class="inner-spinner-container">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <!-- Opportunity Card Ends -->
+
+      <br><br>
+      <!-- Footer Starts -->
+      <footer class="bg-dark mt-5 text-white" style="bottom: 0;">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-4 p-5">
+                    <h5 class="font-weight-bold">AIESEC</h5>
+                    <br>
+                    <p>
+                        AIESEC is a non-governmental not-for-profit organisation in consultative status with the United Nations Economic and Social Council (ECOSOC), affiliated with the UN DPI, member of ICMYO, and is recognized by UNESCO. AIESEC International is registered as a Foundation (Stichting), RSIN #807103895 in Rotterdam, The Netherlands.
+                    </p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-2 p-5">
+                    <h5 class="font-weight-bold">CONNECT TO US</h5>
+                    <br>
+                    <p><a href="#"><i class="fa fa-instagram"></i>&nbsp;&nbsp;Instagram</a></p>
+                    <p><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;Facebook</a></p>
+                    <p><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-2 p-5">
+                    <h5 class="font-weight-bold">OPPORTUNITIES</h5>
+                    <br>
+                    <p><a href="#">Global Volunteer</a></p>
+                    <p><a href="#">Global Talent</a></p>
+                    <p><a href="#">Global Teacher</a></p>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+            </div>
+        </div>
+      </footer>
+      <!-- Footer Ends -->
+
+    </div>
+
+    <!-- Spinner Starts -->
+    <div class="spinner-container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- Spinner Ends -->
+
+    
+
+    <!-- JavaScript Starts -->
+    <script>
+
+      var endpoint = "https://alpha.aiesec.org.eg";
+      var expa_endpoint = "https://gis-api.aiesec.org/graphql?access_token=e316ebe109dd84ed16734e5161a2d236d0a7e6daf499941f7c110078e3c75493";
+
+      /* Fetch Data For Filter Starts */
+      
+      function fetch_countries(){
+        var query = `query Myquery {
+          allCountries(orderBy:"listing",isGv:true)
+              {
+                edges
+                {
+                  node
+                  {
+                    id
+                    name
+                    expaId
+                    flag
+                    visaLink
+                    gvVisaFees
+                    flightTickets
+                    overAllCost
+                    xCoordinate
+                    yCoordinate
+                  }
+                }
+              }
+        }`;
+
+        data_ = fetch(endpoint+'/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          })
+        })
+        .then(r => r.json())
+        .then(data => {
+          inject_countries(data)})
+        .then(() => {
+          fetch_backgrounds();
+        });
+    }
+
+      function inject_countries(data){
+        var countries = data['data']['allCountries']['edges'];
+        countries.forEach(function(element) {
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#country-filter-dropdown").append(`
+            <div class="form-check dropdown-item" id="form-check-country-${element["node"].expaId}">
+              <input class="form-check-input filter-checkbox country-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="country-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="country-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                 
+        });
+    }
+    
+      function fetch_backgrounds(){
+        var query = `query{
+          allBackgrounds {
+            edges{
+              node {
+                expaId
+                name
+              }
+            }
+          }
+        }`;
+
+        data_ = fetch(endpoint+'/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          })
+        })
+        .then(r => r.json())
+        .then(data => {
+          inject_backgrounds(data)})
+        .then(() => {
+          fetch_skills();
+        });
+    }
+
+      function inject_backgrounds(data){
+        var backgrounds = data['data']['allBackgrounds']['edges'];
+        backgrounds.forEach(function(element) {
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#background-filter-dropdown").append(`
+            <div class="form-check dropdown-item" id="form-check-background-${element["node"].expaId}">
+              <input class="form-check-input filter-checkbox background-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="background-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="background-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                  
+        });
+    }
+    
+      function fetch_skills(){
+        var query = `query{
+          allSkills {
+            edges{
+              node {
+                expaId
+                name
+              }
+            }
+          }
+        }`;
+
+        data_ = fetch(endpoint+'/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          })
+        })
+        .then(r => r.json())
+        .then(data => {
+          inject_skills(data)})
+        .then(() => {
+          fetch_sdgs();
+        });
+    }
+
+      function inject_skills(data){
+        var skills = data['data']['allSkills']['edges'];
+        skills.forEach(function(element) {
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#skill-filter-dropdown").append(`
+            <div class="form-check dropdown-item" id="form-check-skill-${element["node"].expaId}">
+              <input class="form-check-input filter-checkbox skill-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="skill-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="skill-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);            
+        });
+    }
+
+      function fetch_sdgs(){
+        var query = `query{
+          allSdgs {
+            edges{
+              node {
+                expaId
+                name
+              }
+            }
+          }
+        }`;
+
+        data_ = fetch(endpoint+'/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          })
+        })
+        .then(r => r.json())
+        .then(data => {
+          inject_sdgs(data)})
+        .then(() => {
+          detect_filter_changes()})
+        .then(() => {
+          stop_spinner()});
+    }
+
+      function inject_sdgs(data){
+        var sdgs = data['data']['allSdgs']['edges'];
+        sdgs.forEach(function(element) {
+          // var new_option = new Option(element["node"].name, element["node"].expaId);
+					// $(new_option).html(element["node"].name);
+					$("#sdg-filter-dropdown").append(`
+            <div class="form-check dropdown-item" id="form-check-sdg-${element["node"].expaId}">
+              <input class="form-check-input filter-checkbox sdg-filter-checkbox" type="checkbox" value="${element["node"].expaId}" id="sdg-filter-checkbox-${element["node"].name}">
+              <label class="form-check-label" for="sdg-filter-checkbox-${element["node"].name}">
+                ${element["node"].name}
+              </label>
+            </div>
+          `);                   
+        });
+    }
+
+      function fetch_filter_data() {
+        fetch_countries();
+      }   
+      
+      /* Fetch Data For Filter Ends */
+
+
+
+      /* Applying Filters and Fetching opportunities starts */
+      function reset_filters() {
+        sessionStorage.removeItem('alpha_country_filters');
+        sessionStorage.removeItem('alpha_background_filters');
+        sessionStorage.removeItem('alpha_skill_filters');
+        sessionStorage.removeItem('alpha_sdg_filters');
+      }
+
+      function detect_filter_changes() {
+        reset_filters();
+
+        $('.filter-checkbox').click(function() {
+          element = $(this);
+
+          if(this.checked) {
+            if(element.hasClass('country-filter-checkbox')) {
+              var country_filters = window.sessionStorage.alpha_country_filters;
+              if ((country_filters) && (country_filters != 'null')) {
+                window.sessionStorage.alpha_country_filters = country_filters + element.val() + ', ';
+                country_filters_string = `${$('.country-chip').html()} | ${element.next().text()}`;
+                country_filters_string = country_filters_string.replaceAll('|  |','|');
+                $('.country-chip').html(country_filters_string);
+              } else {
+                window.sessionStorage.alpha_country_filters = element.val() + ', ';
+                $('.country-chip').html(`${$('.country-chip').html()} ${element.next().text()}`);
+                $('.country-chip').removeClass('do-not-display');
+              }
+            } else if (element.hasClass('background-filter-checkbox')) {
+              var background_filters = window.sessionStorage.alpha_background_filters;
+              if ((background_filters) && (background_filters != 'null')) {
+                window.sessionStorage.alpha_background_filters = background_filters + element.val() + ', ';
+                background_filters_string = `${$('.background-chip').html()} | ${element.next().text()}`;
+                background_filters_string = background_filters_string.replaceAll('|  |','|');
+                $('.background-chip').html(background_filters_string);
+              } else {
+                window.sessionStorage.alpha_background_filters = element.val() + ', ';
+                $('.background-chip').html(`${$('.background-chip').html()} ${element.next().text()}`);
+                $('.background-chip').removeClass('do-not-display');
+              }
+            } else if (element.hasClass('skill-filter-checkbox')) {
+              var skill_filters = window.sessionStorage.alpha_skill_filters;
+              if ((skill_filters) && (skill_filters != 'null')) {
+                window.sessionStorage.alpha_skill_filters = skill_filters + element.val() + ', ';
+                skill_filters_string = `${$('.skill-chip').html()} | ${element.next().text()}`;
+                skill_filters_string = skill_filters_string.replaceAll('|  |','|');
+                $('.skill-chip').html(skill_filters_string);
+              } else {
+                window.sessionStorage.alpha_skill_filters = element.val() + ', ';
+                $('.skill-chip').html(`${$('.skill-chip').html()} ${element.next().text()}`);
+                $('.skill-chip').removeClass('do-not-display');
+              }
+            } else if (element.hasClass('sdg-filter-checkbox')) {
+              var sdg_filters = window.sessionStorage.alpha_sdg_filters;
+              if ((sdg_filters) && (sdg_filters != 'null')) {
+                window.sessionStorage.alpha_sdg_filters = sdg_filters + element.val() + ', ';
+                sdg_filters_string = `${$('.sdg-chip').html()} | ${element.next().text()}`;
+                sdg_filters_string = sdg_filters_string.replaceAll('|  |','|');
+                $('.sdg-chip').html(sdg_filters_string);
+              } else {
+                window.sessionStorage.alpha_sdg_filters = element.val() + ', ';
+                $('.sdg-chip').html(`${$('.sdg-chip').html()} ${element.next().text()}`);
+                $('.sdg-chip').removeClass('do-not-display');
+              }
+            }
+          } else {
+            if(element.hasClass('country-filter-checkbox')) {
+              var country_filters = window.sessionStorage.alpha_country_filters;
+              if ((country_filters) && (country_filters != 'null') && ((country_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_country_filters = country_filters.replace(`${element.val()}, `, '');
+                country_removed = element.next().text();
+                country_filters_string = $('.country-chip').html().replace(country_removed, '').replaceAll('|  |','|');
+                $('.country-chip').html(country_filters_string);
+              } else if (((country_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_country_filters');
+                $('.country-chip').html('Country : ');
+                $('.country-chip').addClass('do-not-display');
+              }
+            } else if (element.hasClass('background-filter-checkbox')) {
+              var background_filters = window.sessionStorage.alpha_background_filters;
+              if ((background_filters) && (background_filters != 'null') && ((background_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_background_filters = background_filters.replace(`${element.val()}, `, '');
+                background_removed = element.next().text();
+                background_filters_string = $('.background-chip').html().replace(background_removed, '').replaceAll('|  |','|');
+                $('.background-chip').html(background_filters_string);
+              } else if (((background_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_background_filters');
+                $('.background-chip').html('Background : ');
+                $('.background-chip').addClass('do-not-display');
+              }
+            } else if (element.hasClass('skill-filter-checkbox')) {
+              var skill_filters = window.sessionStorage.alpha_skill_filters;
+              if ((skill_filters) && (skill_filters != 'null') && ((skill_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_skill_filters = skill_filters.replace(`${element.val()}, `, '');
+                skill_removed = element.next().text();
+                skill_filters_string = $('.skill-chip').html().replace(skill_removed, '').replaceAll('|  |','|');
+                $('.skill-chip').html(skill_filters_string);
+              } else if (((skill_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_skill_filters');
+                $('.skill-chip').html('Skill : ');
+                $('.skill-chip').addClass('do-not-display');
+              }
+            } else if (element.hasClass('sdg-filter-checkbox')) {
+              var sdg_filters = window.sessionStorage.alpha_sdg_filters;
+              if ((sdg_filters) && (sdg_filters != 'null') && ((sdg_filters.match(/,/g) || []).length > 1)) {
+                window.sessionStorage.alpha_sdg_filters = sdg_filters.replace(`${element.val()}, `, '');
+                sdg_removed = element.next().text();
+                sdg_filters_string = $('.sdg-chip').html().replace(sdg_removed, '').replaceAll('|  |','|');
+                $('.sdg-chip').html(sdg_filters_string);
+              } else if (((sdg_filters.match(/,/g) || []).length == 1)) {
+                sessionStorage.removeItem('alpha_sdg_filters');
+                $('.sdg-chip').html('SDG : ');
+                $('.sdg-chip').addClass('do-not-display');
+              }
+            }
+          }
+
+          fetch_opportunities();
+          
+        });
+        
+        $('.filter-search-dropdown').keyup(function() {
+          var search_key = $(this).val().toLowerCase();
+          if ($(this).hasClass('country-filter-search-dropdown')) {
+            $('.country-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var country_label = element.attr('id').replace('country-filter-checkbox-','').toLowerCase();
+              if(country_label.includes(search_key)) {
+                $(`#form-check-country-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-country-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('background-filter-search-dropdown')) {
+            $('.background-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var background_label = element.attr('id').replace('background-filter-checkbox-','').toLowerCase();
+              if(background_label.includes(search_key)) {
+                $(`#form-check-background-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-background-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('skill-filter-search-dropdown')) {
+            $('.skill-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var skill_label = element.attr('id').replace('skill-filter-checkbox-','').toLowerCase();
+              if(skill_label.includes(search_key)) {
+                $(`#form-check-skill-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-skill-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          } else if ($(this).hasClass('sdg-filter-search-dropdown')) {
+            $('.sdg-filter-checkbox').each((index, element) => {
+              var element = $(element);
+              var sdg_label = element.attr('id').replace('sdg-filter-checkbox-','').toLowerCase();
+              if(sdg_label.includes(search_key)) {
+                $(`#form-check-sdg-${element.val()}`).removeClass('do-not-display');
+              } else {
+                $(`#form-check-sdg-${element.val()}`).addClass('do-not-display');
+              }
+            })
+          }  
+        })
+
+        fetch_opportunities();
+      }
+
+      function fetch_opportunities(){
+
+        start_inner_spinner();
+
+        var country_filters = window.sessionStorage.alpha_country_filters;
+        var background_filters = window.sessionStorage.alpha_background_filters;
+        var skill_filters = window.sessionStorage.alpha_skill_filters;
+        var sdg_filters = window.sessionStorage.alpha_sdg_filters;
+
+        var filter_string = `{ exclude_home_mcs: 1609 `;
+
+        if((country_filters) && (country_filters != 'null')){
+          filter_string = filter_string + `home_mcs: [${country_filters}] `
+        }
+        if((background_filters) && (background_filters != 'null')){
+          filter_string = filter_string + `background_ids: [${background_filters}] `
+        }
+        if((skill_filters) && (skill_filters != 'null')){
+          filter_string = filter_string + `skill_ids: [${skill_filters}] `
+        }
+        // if((sdg_filters) && (sdg_filters != 'null')){
+        //   filter_string = filter_string + `sdg_targets: [${sdg_filters}] `
+        // }
+        filter_string = filter_string + ` }`;
+
+        var query = `query {
+          allOpportunity(
+            filters:${filter_string} 
+          ){
+            data
+            {
+              id
+              title
+              earliest_start_date
+              duration
+              description
+              location
+              organisation
+              {
+                name
+              }
+              cover_photo
+            }
+          }
+        }`;
+
+        data_ = fetch(expa_endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          })
+        })
+        .then(r => r.json())
+        .then(data => {
+          inject_opportunities(data);
+        })
+        .then(() => {
+          stop_inner_spinner();
+        });
+      }
+
+      function inject_opportunities(data) {
+        var opportunities = data['data']['allOpportunity']['data'];
+        $('.opportunity-list').empty();
+        var max_description_length = 300;
+        var truncated_description = '';
+        opportunities.forEach(function(element) {
+          if(element.description.length > max_description_length) {
+            truncated_description = element.description.substring(0,max_description_length - 3) + '...';
+          } else {
+            truncated_description = element.description;
+          }
+          $('.opportunity-list').append(`
+          <div class="card mb-6 shadow-lg opportunity-card p-5" onclick="opportunity_detail(${element.id});">
+            <div class="row no-gutters">
+              <div class="col-md-3 opportunity-card-img-div">
+                <img src="${element.cover_photo.url}" class="card-img" alt="...">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body opportunity-card-text-div">
+                  <h5 class="card-title font-weight-bold">${element.title}</h5>
+                  <p class="card-text text-justify">${truncated_description}</p>
+                  <p class="card-text"><small class="text-muted">${element.organisation.name}, ${element.location}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          `);
+        });
+      }
+
+      function opportunity_detail(opportunity_id) {
+        var current_url = document.location.href;
+        var opportunity_detail_url = current_url.substring(0, current_url.lastIndexOf('/')) + '/opportunity-detail.html?id=' + encodeURIComponent(opportunity_id);
+        window.open(opportunity_detail_url);
+      }
+      
+      /* Applying Filters and Fetching opportunities ends */
+
+
+      /* Spinner Action Starts */
+
+      function start_spinner() {
+        $('.spinner-container').removeClass('do-not-display');
+        $('.content-container').addClass('do-not-display');
+      }
+
+      function stop_spinner() {
+        $('.spinner-container').addClass('do-not-display');
+        $('.content-container').removeClass('do-not-display');
+      }
+
+      function start_inner_spinner() {
+        $('.inner-spinner-container').removeClass('do-not-display');
+        $('.inner-content-container').addClass('do-not-display');
+      }
+
+      function stop_inner_spinner() {
+        $('.inner-spinner-container').addClass('do-not-display');
+        $('.inner-content-container').removeClass('do-not-display');
+      }
+      
+      /* Spinner Action Ends */
+
+
+
+      /* Login -- Signup -- Logout starts */
+
+      /* Login -- Signup -- Logout ends */
+
+
+
+
+      function main(){
+        fetch_filter_data();
+      }
+
+      window.onload = main;
+    </script>
+    <!-- JavaScript Ends -->
+
+    
+  
+  </body>
+</html>
