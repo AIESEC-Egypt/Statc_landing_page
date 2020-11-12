@@ -1000,6 +1000,14 @@
                 // Show the user that he Applied! Congrats!
             }
             function signup_request(){
+
+              var email = document.getElementById('email_signup_field').value
+
+              if (email.includes(' ')){
+     
+                email =  email.split(' ').join('');
+                    }
+
                 var campus_options = document.getElementById('campus_options')
                 var campus = campus_options.options[campus_options.selectedIndex].value;
                 
@@ -1049,7 +1057,7 @@
                 }`;
                     var variables = { firstname: document.getElementById('first_name_field').value,
                                       lastname: document.getElementById('last_name_field').value,
-                                      email: document.getElementById('email_signup_field').value,
+                                      email: email,
                                       password: document.getElementById('password_signup_field').value,
                                       phone: document.getElementById('phone_field').value,
                                       campus: campus,
@@ -1171,12 +1179,12 @@
                     document.getElementById('form_msg').style.display = "block";
                     return ;
                  }
-                if (email.includes(' ')){
-                    var msg = "Please Remove Spaces from your email!";
-                    document.getElementById('sign_up_error_msg').innerHTML = msg;
-                    document.getElementById('form_msg').style.display = "block";
-                    return ;
-                }
+                // if (email.includes(' ')){
+                //     var msg = "Please Remove Spaces from your email!";
+                //     document.getElementById('sign_up_error_msg').innerHTML = msg;
+                //     document.getElementById('form_msg').style.display = "block";
+                //     return ;
+                // }
                 if (!email.includes('@') || !email.includes('.')){
                     var msg = "Please enter a valid email!";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
@@ -1248,6 +1256,12 @@
                 }
                 if (graduation_year.length != 4) {
                     var msg = "Please enter a valid graduation year."
+                    document.getElementById('sign_up_error_msg').innerHTML = msg;
+                    document.getElementById('form_msg').style.display = "block";
+                    return ;
+                 }
+                 if (graduation_year   <= 2008) {
+                    var msg = "This graudation year means that you exceeded the exchange program age limit (30 years)."
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
                     return ;
