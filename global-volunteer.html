@@ -170,6 +170,23 @@
           background: #585858;
         }
         </style>
+        <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '448845196316606');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=448845196316606&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
 	</head>
 	<body class="footer-dark">
         <!-- Google Tag Manager (noscript) -->
@@ -1137,9 +1154,35 @@
               return !isNaN(parseFloat(n)) && isFinite(n);
             }
            
-            
+            function expaEmail(email){
+                var query = `query MyQuery($email: String!){
+                  allPeople(q:$email){
+                    data{
+                      id
+                    }
+                  }
+                }`;
+                
+                var variables = { q:email,},
 
-            function validate_form(){
+                data_ = fetch('https://gis-api.aiesec.org/graphql?access_token=e316ebe109dd84ed16734e5161a2d236d0a7e6daf499941f7c110078e3c75493', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    query,
+                    variables
+                  })
+                })
+                  .then(r => r.json());
+
+                  return data
+                //console.log(data_);
+            }
+
+            function validate_form(data){
                 // Validate form inputs here first before calling !
                 document.getElementById('form_msg').style.display = "none";
                 var upperCase= new RegExp('[A-Z]');
@@ -1181,6 +1224,14 @@
                     document.getElementById('form_msg').style.display = "block";
                     return ;
                  }
+                //  data = expaEmail(email)
+                //  console.log(data['data']['allPeople']['data'])
+                //  console.log(data['data']['allPeople']['data'].length)
+
+                //  console.log(data['data']['allPeople']['data']['id'])
+                //  data['data']['allPeople']['data']
+                 
+                 
                 // if (email.includes(' ')){
                    
                 //     email =  email.split(' ').join('');
