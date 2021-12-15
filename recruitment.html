@@ -109,7 +109,7 @@
 							<strong><span id="current_user" style="color: white;"></span></strong>
 						</li>
 					</ul>
-					
+
 				</nav>
 			</div>
 		</header>
@@ -124,9 +124,9 @@
 						</p>
 					</header>
 					<div class="tab-group tab-group-switch-style">
-						
+
 							<div class="column-row align-center-bottom">
-								
+
                                 <div class="column-50">
                     <form id="ge_signup_form" action="javascript:validate_form();" class="form-full-width">
 						<div class="column-row">
@@ -289,13 +289,9 @@
                         </div>
                     </div>
                                 </div>
-                                
-                                
-                                
-								
-							
+
 						</div>
-						
+
 					</div>
 			</section>
 			<!-- Content Row -->
@@ -308,15 +304,15 @@
 				</div>
                 <div class="container">
 					<a id="hotme" data-modal-target="client-login"></a>
-                    
+
 					<div class="column-row">
-						
-						
+
+
 						<div class="column-25">
-							
+
 							<div id="client-login-modal" class="modal" data-modal="client-login" data-modal-dismissible="true">
-								
-								
+
+
 							<div class="modal-header">
 									<h3>
 								        Login
@@ -334,18 +330,18 @@
 										</div>
 										<div class="form-row checkbox-style-block">
 											<div class="checkbox-style active"><div class="checkbox-style-icon"><i class="fas fa-check"></i></div><input id="form-login" type="checkbox" name="login" checked=""></div>
-											
+
 										</div>
 										<div class="form-row group">
 											<button class="button-primary group-stretch">
 												Login
 											</button>
-											
+
 										</div>
 									</form>
 								</div></div>
 						</div>
-						
+
 					</div>
         </div>
         <div class="column-row">
@@ -386,14 +382,14 @@
               </div>
           </div>
       </div>
-      
+
         <button type="button" class="btn btn-raised btn-warning ps-trigger-btn">HELP</button>
-                    
-                   
-          
+
+
+
       </section>
-      
-	
+
+
 		<!-- Scripts -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/headroom.min.js"></script>
@@ -527,12 +523,12 @@
                 var lastname = document.getElementById('last_name_field').value;
                 var email = document.getElementById('email_signup_field').value;
                 var password = document.getElementById('age').value;
-                var phone = document.getElementById('phone_field').value;         
+                var phone = document.getElementById('phone_field').value;
                 var dob = document.getElementById('dob_field').value;
                 var graduation_year = document.getElementById('graduation_year_field').value;
                 var campus_options = document.getElementById('campus_options')
                 var campus = campus_options.options[campus_options.selectedIndex].value;
-                
+
                 var faculty_options = document.getElementById('faculty_options')
                 var faculty = faculty_options.options[faculty_options.selectedIndex].value;
 
@@ -574,7 +570,7 @@
                     document.getElementById('form_msg').style.display = "block";
                     return ;
                  }
-                
+
                 var numeric = false;
                 var upperCase = false;
                 var lowerCase = false;
@@ -598,14 +594,14 @@
                             }
                         }
                     }
-                    
+
                     i++;
                 }
                 if ( !numeric || !upperCase || !lowerCase ){
                     var msg = "Your password must contain a mixture of upper and lower case letters and at least one number";
                     document.getElementById('sign_up_error_msg').innerHTML = msg;
                     document.getElementById('form_msg').style.display = "block";
-                    return ; 
+                    return ;
                 }
                 if (phone.length != 11) {
                     var msg = "Please enter a valid 11 digits phone number.";
@@ -638,7 +634,7 @@
                     return ;
                 }
                 unique_email(email);
-                
+
             }
             function getUrlVars() {
                 var vars = {};
@@ -656,7 +652,7 @@
             }
             function calculate_age(dob) {
                 var diff_ms = Date.now() - dob.getTime();
-                var age_dt = new Date(diff_ms); 
+                var age_dt = new Date(diff_ms);
 
                 return Math.abs(age_dt.getUTCFullYear() - 1970);
             }
@@ -674,7 +670,7 @@
                         html = $.parseHTML( str ),
                         nodeNames = [];
                         $log.append( html );
-                        
+
                     }
                     else{
                         get_current_user(current_token)
