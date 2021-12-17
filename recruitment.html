@@ -464,50 +464,6 @@
             function show_login_panel(){
                 document.getElementById("hotme").click();
             }
-            function validate_email(data){
-                //console.log(data)
-                result = data['data']['isEmailUnique']['unique']
-                if (result == true){
-                    //document.getElementById('signup_prog').innerHTML = '<div class="progress-horizontal__progress" style="width: 40%;"></div>';
-                    //document.getElementById('prog_label').innerHTML = 'Creating Account';
-                    //document.getElementById('div_prog').style.display = 'block';
-                    signup_request()
-                    //alert('SIGNING YOUR ASS UP!')
-                }
-                else{
-                    var msg = "The email is registered before, please sign in.";
-                    document.getElementById('sign_up_error_msg').innerHTML = msg;
-                    document.getElementById('form_msg').style.display = "block";
-                    //$("#ge_signup_form *").attr("disabled", "").off('click');
-                    $('#ge_signup_form *').prop("disabled", false);
-                }
-            }
-            function unique_email(email){
-                //document.getElementById('ge_signup_form').style.display = 'none';
-                $("#ge_signup_form *").attr("disabled", "disabled").off('click');
-                var query = `mutation mymutation($email: String!){
-                  isEmailUnique(email:$email){
-                    unique
-                  }
-                }`;
-                    var variables = { email: email},
-
-
-                    data_ = fetch(endpoint + '/graphql', {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                      },
-                      body: JSON.stringify({
-                        query,
-                        variables,
-                      })
-                    })
-                      .then(r => r.json())
-                      .then(data => validate_email(data));
-
-            }
             function isNumeric(n) {
               return !isNaN(parseFloat(n)) && isFinite(n);
             }
@@ -631,7 +587,6 @@
                     document.getElementById('form_msg').style.display = "block";
                     return ;
                 }
-                unique_email(email);
 
             }
             function getUrlVars() {
